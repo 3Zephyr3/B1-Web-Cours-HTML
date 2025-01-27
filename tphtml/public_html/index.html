@@ -8,38 +8,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mémento HTML5</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+    <script>
+        function toggleExercice(id) {
+            const content = document.getElementById(id);
+            if (content.style.display === "none" || content.style.display === "") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
         }
-        h1 {
-            font-size: 24px;
-        }
-        h2 {
-            font-size: 20px;
-        }
-        p {
-            margin: 8px 0;
-        }
-        ul {
-            margin-left: 20px;
-        }
-        li {
-            list-style-type: disc;
-        }
-        blockquote {
-            margin: 10px 20px;
-            padding: 10px;
-            background-color: #f9f9f9;
-            border-left: 4px solid #ccc;
-        }
-        code {
-            background-color: #f4f4f4;
-            padding: 2px 4px;
-            font-family: Consolas, "Courier New", monospace;
-        }
-    </style>
+    </script>
 </head>
 <body>
     <header>
@@ -50,17 +28,125 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     </header>
 
     <main>
-        <section id="exercice2" style="display: block;">
+        <section id="exercice1" style="display: none;">
+            <h2>Mémento HTML5</h2>
+            <p>Liste des balises HTML5 courantes utilisées pour la présentation du texte, avec leur rôle et des exemples.</p>
+
+            <section>
+                <h2>&lt;h1&gt; à &lt;h6&gt; - Titres</h2>
+                <p><strong>Rôle :</strong> Définir des titres de différentes importances.</p>
+                <pre><code>
+&lt;h1&gt;Titre de niveau 1&lt;/h1&gt;
+&lt;h2&gt;Titre de niveau 2&lt;/h2&gt;
+&lt;h3&gt;Titre de niveau 3&lt;/h3&gt;
+                </code></pre>
+                <p>Aperçu :</p>
+                <h1>Titre de niveau 1</h1>
+                <h2>Titre de niveau 2</h2>
+                <h3>Titre de niveau 3</h3>
+            </section>
+
+            <section>
+                <h2>&lt;p&gt; - Paragraphe</h2>
+                <p><strong>Rôle :</strong> Contenir du texte.</p>
+                <pre><code>
+&lt;p&gt;Ceci est un paragraphe.&lt;/p&gt;
+                </code></pre>
+                <p>Aperçu :</p>
+                <p>Ceci est un paragraphe.</p>
+            </section>
+
+            <section>
+                <h2>&lt;strong&gt; et &lt;em&gt; - Mise en valeur</h2>
+                <p><strong>Rôle :</strong> Ajouter de l'importance ou de l'emphase au texte.</p>
+                <pre><code>
+&lt;strong&gt;Texte important&lt;/strong&gt;
+&lt;em&gt;Texte en emphase&lt;/em&gt;
+                </code></pre>
+                <p>Aperçu :</p>
+                <p><strong>Texte important</strong></p>
+                <p><em>Texte en emphase</em></p>
+            </section>
+
+            <section>
+                <h2>&lt;ul&gt;, &lt;ol&gt;, &lt;li&gt; - Listes</h2>
+                <p><strong>Rôle :</strong> Créer des listes ordonnées ou non ordonnées.</p>
+                <pre><code>
+&lt;ul&gt;
+  &lt;li&gt;Élément 1&lt;/li&gt;
+  &lt;li&gt;Élément 2&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Premier élément&lt;/li&gt;
+  &lt;li&gt;Deuxième élément&lt;/li&gt;
+&lt;/ol&gt;
+                </code></pre>
+                <p>Aperçu :</p>
+                <ul>
+                    <li>Élément 1</li>
+                    <li>Élément 2</li>
+                </ul>
+                <ol>
+                    <li>Premier élément</li>
+                    <li>Deuxième élément</li>
+                </ol>
+            </section>
+
+            <section>
+                <h2>&lt;a&gt; - Lien hypertexte</h2>
+                <p><strong>Rôle :</strong> Créer un lien vers une autre page ou ressource.</p>
+                <pre><code>
+&lt;a href="https://www.example.com"&gt;Visiter un site&lt;/a&gt;
+                </code></pre>
+                <p>Aperçu :</p>
+                <a href="https://www.example.com">Visiter un site</a>
+            </section>
+
+            <section>
+                <h2>&lt;img&gt; - Image</h2>
+                <p><strong>Rôle :</strong> Afficher une image.</p>
+                <pre><code>
+&lt;img src="exemple.jpg" alt="Description de l'image" /&gt;
+                </code></pre>
+                <p>Aperçu :</p>
+                <p>(L'image s'afficherait ici si une source était spécifiée.)</p>
+            </section>
+
+            <section>
+                <h2>&lt;table&gt;, &lt;tr&gt;, &lt;td&gt; - Tableaux</h2>
+                <p><strong>Rôle :</strong> Organiser des données tabulaires.</p>
+                <pre><code>
+&lt;table&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Cellule 1&lt;/td&gt;
+    &lt;td&gt;Cellule 2&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+                </code></pre>
+                <p>Aperçu :</p>
+                <table border="1">
+                    <tr>
+                        <td>Cellule 1</td>
+                        <td>Cellule 2</td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+
+        <section id="exercice2" style="display: none;">
+            <h2>Exercice 2 : Structuration HTML d'un texte</h2>
+
             <h1>1. Le langage SQL</h1>
             <h2>1.1. Définition</h2>
-            <p>Le langage <strong>SQL</strong> (Structured Query Language ou Langage de requêtes structuré) est un langage comprenant à lui seul l’ensemble des ordres nécessaires à la création et à la gestion d’une base de données relationnelle. Il a été créé en 1986 et est en fait l’aboutissement de plusieurs langages (Sequel en 1977, System/R, …) créés depuis l’apparition du modèle relationnel en 1970 (le modèle relationnel a été inventé par Mr Codd, un mathématicien de chez IBM). L'utilisation du langage SQL suppose obligatoirement que les données aient été définies selon le modèle relationnel au sein d'un SGBDR (Oracle ©, SQLServer, mySQL, PostgreSQL…).</p>
+            <p>Le langage SQL (Structured Query Language ou Langage de requêtes structuré) est un langage comprenant à lui seul l’ensemble des ordres nécessaires à la création et à la gestion d’une base de données relationnelle. Il a été créé en 1986 et est en fait l’aboutissement de plusieurs langages (Sequel en 1977, System/R, …) créés depuis l’apparition du modèle relationnel en 1970 (le modèle relationnel a été inventé par Mr Codd, un mathématicien de chez IBM). L'utilisation du langage SQL suppose obligatoirement que les données aient été définies selon le modèle relationnel au sein d'un SGBDR (Oracle ©, SQLServer, mySQL, PostgreSQL…).</p>
 
             <h2>1.2. Les différentes normes utilisées</h2>
             <p>Il existe aujourd'hui plusieurs normes relatives à l'utilisation du langage SQL. La différence entre ces deux normes se situe principalement dans l'écriture des jointures et dans l'ajout de fonctionnalités :</p>
             <ul>
-                <li>La norme <strong>SQL 89</strong> qui est encore très utilisée actuellement.</li>
-                <li>La norme <strong>SQL 92</strong>.</li>
-                <li>Aujourd'hui <strong>SQL 2011</strong>.</li>
+                <li>La norme SQL 89 qui est encore très utilisée actuellement.</li>
+                <li>La norme SQL 92.</li>
+                <li>Aujourd'hui SQL 2011.</li>
             </ul>
             <p>Bien qu'il existe des normes il peut y avoir des différences entre SGBDR dans la syntaxe. Ainsi on peut lire sur le site de PostgreSQL :</p>
             <blockquote>
