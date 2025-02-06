@@ -19,11 +19,25 @@
 
         <section class="cours">
             <div class="cours-item">
-                <a href="Docs/html.html">
+                <!-- Remplacer les href par javascript:void(0) pour empêcher la navigation immédiate,
+                     et ajouter l'attribut onclick qui déclenche l'affichage du dropdown -->
+                <a href="javascript:void(0)" onclick="toggleDropdown('dropdown-html')">
                     <img src="Image/html.png" alt="Cours HTML">
                 </a>
-                <h2><a href="Docs/html.html">Cours HTML</a></h2>
+                <h2>
+                  <a href="javascript:void(0)" onclick="toggleDropdown('dropdown-html')">Cours HTML</a>
+                </h2>
+                <!-- Le menu déroulant (caché par défaut) contenant la liste des fichiers du dossier -->
+                <div id="dropdown-html" class="dropdown" style="display: none;">
+                    <ul>
+                        <li><a href="Docs/cours_HTML/COURS/fichier1.html">Fichier 1</a></li>
+                        <li><a href="Docs/cours_HTML/COURS/fichier2.html">Fichier 2</a></li>
+                        <li><a href="Docs/cours_HTML/COURS/fichier3.html">Fichier 3</a></li>
+                        <!-- Ajoutez ici d'autres liens correspondant aux fichiers présents dans le dossier -->
+                    </ul>
+                </div>
             </div>
+            
 
             <div class="cours-item">
                 <a href="Docs/cours_CSS/COURS/cours_1_css.html">
@@ -54,5 +68,17 @@
         <p>© 2025 - Site des cours Web</p>
     </footer>
 
+    <script>
+        function toggleDropdown(id) {
+          var dropdown = document.getElementById(id);
+          // Si le dropdown est visible, on le masque, sinon on l'affiche
+          if (dropdown.style.display === "block") {
+            dropdown.style.display = "none";
+          } else {
+            dropdown.style.display = "block";
+          }
+        }
+    </script>
+        
 </body>
 </html>

@@ -54,3 +54,27 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+.dropdown {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-top: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  .dropdown ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .dropdown li {
+    margin-bottom: 5px;
+  }
+  .dropdown li a {
+    color: #333;
+    text-decoration: none;
+  }
+  .dropdown li a:hover {
+    text-decoration: underline;
+  }
+  
