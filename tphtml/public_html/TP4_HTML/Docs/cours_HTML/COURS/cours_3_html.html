@@ -156,9 +156,30 @@
         max-width: 90%;
         max-height: 90%;
       }
+
+      .accueil-button {
+    position: fixed;         /* Position fixe sur la page */
+    top: 20px;               /* Ajustez la marge supérieure selon vos besoins */
+    left: 20px;              /* Ajustez la marge gauche */
+    background-color: #3498db;  /* Couleur de fond */
+    color: #fff;             /* Couleur du texte */
+    padding: 10px 15px;      /* Espacement intérieur */
+    text-decoration: none;   /* Supprime le soulignement */
+    font-size: 16px;         /* Taille du texte */
+    font-weight: bold;
+    border-radius: 5px;      /* Coins arrondis */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);  /* Légère ombre portée */
+    transition: background-color 0.3s ease;  /* Transition pour l'effet hover */
+    z-index: 10000;          /* Pour qu'il reste au-dessus des autres éléments */
+    }
+
+    .accueil-button:hover {
+        background-color: #2980b9;  /* Changement de couleur au survol */
+    }
     </style>
 </head>
 <body class="p">
+    <a href="https://3zephyr3.github.io/B1-Web-Cours-HTML/tphtml/public_html/TP4_HTML/" class="accueil-button">Accueil TP4</a>
     <!-- Popup pour l'affichage agrandi des images -->
     <div class="popup" id="popup" onclick="closePopup()">
         <img id="popupImage" alt="Popup Image">
