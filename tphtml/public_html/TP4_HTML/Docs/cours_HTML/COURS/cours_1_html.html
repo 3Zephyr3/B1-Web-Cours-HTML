@@ -948,12 +948,18 @@ Ainsi que les passages à la ligne.<br>
           headers.forEach(function(header) {
             var li = document.createElement("li");
             var a = document.createElement("a");
+            // Récupère l'id de la balise h2 ou, si elle n'en a pas, celui du parent
+            var headerId = header.id;
+            if (!headerId && header.parentElement && header.parentElement.id) {
+              headerId = header.parentElement.id;
+            }
             a.textContent = header.textContent;
-            a.href = "#" + header.id;
+            a.href = "#" + headerId;
             li.appendChild(a);
             tocList.appendChild(li);
           });
         });
+
         // Fonction pour ouvrir la popup avec l'image cliquée
         function openPopup(imgElement) {
           var popup = document.getElementById("popup");
