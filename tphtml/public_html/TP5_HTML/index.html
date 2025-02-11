@@ -44,34 +44,48 @@
 <body>
     <h1>Jeu du Memory</h1>
     
-    <!-- Étape 4 : Cacher les images et les révéler au clic -->
-    <div class="game-container" id="game-board">
-        <div class="card" onclick="revealCard(this)"><img src="Images/img1.png" alt="Image 1"></div>
-        <div class="card" onclick="revealCard(this)"><img src="Images/img2.png" alt="Image 2"></div>
-        <div class="card" onclick="revealCard(this)"><img src="Images/img3.png" alt="Image 3"></div>
-        <div class="card" onclick="revealCard(this)"><img src="Images/img4.png" alt="Image 4"></div>
-        <div class="card" onclick="revealCard(this)"><img src="Images/img5.png" alt="Image 5"></div>
-        <div class="card" onclick="revealCard(this)"><img src="Images/img6.png" alt="Image 6"></div>
-        <div class="card" onclick="revealCard(this)"><img src="Images/img7.png" alt="Image 7"></div>
-        <div class="card" onclick="revealCard(this)"><img src="Images/img8.png" alt="Image 8"></div>
-        <div class="card" onclick="revealCard(this)"><img src="Images/img9.png" alt="Image 9"></div>
-        <div class="card" onclick="revealCard(this)"><img src="Images/img10.png" alt="Image 10"></div>
-        <div class="card" onclick="revealCard(this)"><img src="Images/img1.png" alt="Image 1"></div>
-        <div class="card" onclick="revealCard(this)"><img src="Images/img2.png" alt="Image 2"></div>
-        <div class="card" onclick="revealCard(this)"><img src="Images/img3.png" alt="Image 3"></div>
-        <div class="card" onclick="revealCard(this)"><img src="Images/img4.png" alt="Image 4"></div>
-        <div class="card" onclick="revealCard(this)"><img src="Images/img5.png" alt="Image 5"></div>
-        <div class="card" onclick="revealCard(this)"><img src="Images/img6.png" alt="Image 6"></div>
-        <div class="card" onclick="revealCard(this)"><img src="Images/img7.png" alt="Image 7"></div>
-        <div class="card" onclick="revealCard(this)"><img src="Images/img8.png" alt="Image 8"></div>
-        <div class="card" onclick="revealCard(this)"><img src="Images/img9.png" alt="Image 9"></div>
-        <div class="card" onclick="revealCard(this)"><img src="Images/img10.png" alt="Image 10"></div>
-    </div>
+    <!-- Étape 5 : Génération dynamique des cartes -->
+    <div class="game-container" id="game-board"></div>
     
     <script>
-        function revealCard(card) {
-            card.classList.toggle('revealed');
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
         }
+
+        function generateCards() {
+            const gameBoard = document.getElementById("game-board");
+            const images = [];
+            
+            for (let i = 1; i <= 10; i++) {
+                images.push({ id: `${i}a`, src: `Images/img${i}.png` });
+                images.push({ id: `${i}b`, src: `Images/img${i}.png` });
+            }
+            
+            shuffle(images);
+            
+            images.forEach(image => {
+                const card = document.createElement("div");
+                card.classList.add("card");
+                card.setAttribute("id", image.id);
+                card.onclick = () => revealCard(card);
+                
+                const img = document.createElement("img");
+                img.src = image.src;
+                img.alt = `Image ${image.id}`;
+                
+                card.appendChild(img);
+                gameBoard.appendChild(card);
+            });
+        }
+
+        function revealCard(card) {
+            card.classList.toggle("revealed");
+        }
+
+        document.addEventListener("DOMContentLoaded", generateCards);
     </script>
 </body>
 </html>
