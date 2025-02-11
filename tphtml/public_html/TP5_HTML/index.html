@@ -30,24 +30,35 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
+            transform: rotateY(0deg);
+            transition: transform 0.5s;
         }
         .card img {
             width: 100px;
             height: 100px;
             display: none;
         }
+        .card.revealed {
+            transform: rotateY(180deg);
+        }
         .card.revealed img {
             display: block;
+        }
+        .matched {
+            visibility: hidden;
         }
     </style>
 </head>
 <body>
     <h1>Jeu du Memory</h1>
     
-    <!-- Étape 5 : Génération dynamique des cartes -->
     <div class="game-container" id="game-board"></div>
     
     <script>
+        let firstCard = null;
+        let secondCard = null;
+        let lockBoard = false;
+
         function shuffle(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
@@ -60,8 +71,8 @@
             const images = [];
             
             for (let i = 1; i <= 10; i++) {
-                images.push({ id: `${i}a`, src: `Images/img${i}.png` });
-                images.push({ id: `${i}b`, src: `Images/img${i}.png` });
+                images.push({ id: `${i}a`, src: `Images/img${i}.png`, pair: i });
+                images.push({ id: `${i}b`, src: `Images/img${i}.png`, pair: i });
             }
             
             shuffle(images);
@@ -69,7 +80,7 @@
             images.forEach(image => {
                 const card = document.createElement("div");
                 card.classList.add("card");
-                card.setAttribute("id", image.id);
+                card.dataset.pair = image.pair;
                 card.onclick = () => revealCard(card);
                 
                 const img = document.createElement("img");
@@ -82,7 +93,48 @@
         }
 
         function revealCard(card) {
-            card.classList.toggle("revealed");
+            if (lockBoard || card === firstCard || card.classList.contains("revealed")) return;
+            
+            card.classList.add("revealed");
+            
+            if (!firstCard) {
+                firstCard = card;
+                return;
+            }
+            
+            secondCard = card;
+            lockBoard = true;
+            
+            checkForMatch();
+        }
+
+        function checkForMatch() {
+            if (firstCard.dataset.pair === secondCard.dataset.pair) {
+                disableCards();
+            } else {
+                unflipCards();
+            }
+        }
+
+        function disableCards() {
+            setTimeout(() => {
+                firstCard.classList.add("matched");
+                secondCard.classList.add("matched");
+                resetBoard();
+            }, 500);
+        }
+
+        function unflipCards() {
+            setTimeout(() => {
+                firstCard.classList.remove("revealed");
+                secondCard.classList.remove("revealed");
+                resetBoard();
+            }, 1000);
+        }
+
+        function resetBoard() {
+            [firstCard, secondCard] = [null, null];
+            lockBoard = false;
         }
 
         document.addEventListener("DOMContentLoaded", generateCards);
