@@ -1,199 +1,199 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TP WEB</title>
-    <script>
-        // Fonction de bascule pour afficher/masquer les exercices de TP3
-        function toggleExercice(id) {
-            const content = document.getElementById(id);
-            if (content) {
-                if (content.style.display === "none" || content.style.display === "") {
-                    content.style.display = "block";
-                } else {
-                    content.style.display = "none";
-                }
-            } else {
-                console.error("Element with ID " + id + " not found.");
-            }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TP WEB</title>
+  <script>
+    // Fonction de bascule pour afficher/masquer les exercices
+    function toggleExercice(id) {
+      const content = document.getElementById(id);
+      if (content) {
+        if (content.style.display === "none" || content.style.display === "") {
+          content.style.display = "block";
+        } else {
+          content.style.display = "none";
         }
-    </script>
-    <style>
-        /* Réinitialisation */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        /* Défilement fluide */
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f4f4f4;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-        }
-        header {
-            width: 100%;
-            background-color: #2c3e50;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            margin-bottom: 20px;
-        }
-        header h1 {
-            font-size: 2.5em;
-        }
-        /* Conteneur pour le contenu TP3 */
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            background: white;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-        .header-tp3 {
-            background-color: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            margin-bottom: 20px;
-        }
-        .header-tp3 h1 {
-            margin: 0;
-            font-size: 2em;
-        }
-        .toggle-buttons {
-            margin-top: 15px;
-        }
-        .toggle-buttons button {
-            background-color: #3498db;
-            border: none;
-            color: white;
-            padding: 10px 15px;
-            margin: 0 5px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .toggle-buttons button:hover {
-            background-color: #2980b9;
-        }
-        .section {
-            margin: 20px 0;
-        }
-        .section h2 {
-            background-color: #2c3e50;
-            color: white;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-        .section p, .section ul, .section pre {
-            padding: 10px;
-            line-height: 1.5;
-        }
-        pre {
-            background: #272822;
-            color: #f8f8f2;
-            padding: 10px;
-            border-radius: 5px;
-            overflow-x: auto;
-        }
-        footer {
-            width: 100%;
-            background-color: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            margin-top: 20px;
-        }
-        /* Navigation en bas pour TP4 et TP5 */
-        .bottom-nav {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        .bottom-nav a {
-            text-decoration: none;
-            background-color: #3498db;
-            color: white;
-            padding: 10px 15px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        .bottom-nav a:hover {
-            background-color: #2980b9;
-        }
-    </style>
+      } else {
+        console.error("Element with ID " + id + " not found.");
+      }
+    }
+  </script>
+  <style>
+    /* Réinitialisation */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    /* Défilement fluide */
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    header {
+      width: 100%;
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      margin-bottom: 20px;
+    }
+    header h1 {
+      font-size: 2.5em;
+    }
+    /* Conteneur pour le contenu TP3 */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      background: white;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    .header-tp3 {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-bottom: 20px;
+    }
+    .header-tp3 h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+    .toggle-buttons {
+      margin-top: 15px;
+    }
+    .toggle-buttons button {
+      background-color: #3498db;
+      border: none;
+      color: white;
+      padding: 10px 15px;
+      margin: 0 5px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .toggle-buttons button:hover {
+      background-color: #2980b9;
+    }
+    .section {
+      margin: 20px 0;
+    }
+    .section h2 {
+      background-color: #2c3e50;
+      color: white;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    .section p, .section ul, .section pre {
+      padding: 10px;
+      line-height: 1.5;
+    }
+    pre {
+      background: #272822;
+      color: #f8f8f2;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    footer {
+      width: 100%;
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      margin-top: 20px;
+    }
+    /* Navigation en bas pour TP4 et TP5 */
+    .bottom-nav {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .bottom-nav a {
+      text-decoration: none;
+      background-color: #3498db;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    .bottom-nav a:hover {
+      background-color: #2980b9;
+    }
+  </style>
 </head>
 <body>
-    <!-- En-tête principal -->
-    <header>
-        <h1>TP WEB</h1>
-    </header>
-    <!-- Contenu TP3 -->
-    <div id="tp3" class="container">
-        <div class="header-tp3">
-            <h1>TP3</h1>
-            <div class="toggle-buttons">
-                <button onclick="toggleExercice('exercice1')">Exercice 1</button>
-                <button onclick="toggleExercice('exercice2')">Exercice 2</button>
-                <button onclick="toggleExercice('exercice3')">Exercice 3</button>
-                <!-- Bouton TP4 supprimé -->
-            </div>
-        </div>
-        <main>
-            <section id="exercice1" style="display: none;" class="section">
-                <h2>Mémento HTML5</h2>
-                <p>Liste des balises HTML5 courantes utilisées pour la présentation du texte, avec leur rôle et des exemples.</p>
+  <!-- En-tête principal -->
+  <header>
+    <h1>TP WEB</h1>
+  </header>
+  <!-- Contenu TP3 -->
+  <div id="tp3" class="container">
+    <div class="header-tp3">
+      <h1>TP3</h1>
+      <div class="toggle-buttons">
+        <button onclick="toggleExercice('exercice1')">Exercice 1</button>
+        <button onclick="toggleExercice('exercice2')">Exercice 2</button>
+        <button onclick="toggleExercice('exercice3')">Exercice 3</button>
+      </div>
+    </div>
+    <main>
+      <!-- Exercice 1 : Mémento HTML5 -->
+      <section id="exercice1" style="display: none;" class="section">
+        <h2>Mémento HTML5</h2>
+        <p>Liste des balises HTML5 courantes utilisées pour la présentation du texte, avec leur rôle et des exemples.</p>
 
-                <section>
-                    <h2>&lt;h1&gt; à &lt;h6&gt; - Titres</h2>
-                    <p><strong>Rôle :</strong> Définir des titres de différentes importances.</p>
-                    <pre><code>
+        <section>
+          <h2>&lt;h1&gt; à &lt;h6&gt; - Titres</h2>
+          <p><strong>Rôle :</strong> Définir des titres de différentes importances.</p>
+          <pre><code>
 &lt;h1&gt;Titre de niveau 1&lt;/h1&gt;
 &lt;h2&gt;Titre de niveau 2&lt;/h2&gt;
 &lt;h3&gt;Titre de niveau 3&lt;/h3&gt;
-                    </code></pre>
-                    <p>Aperçu :</p>
-                    <h1>Titre de niveau 1</h1>
-                    <h2>Titre de niveau 2</h2>
-                    <h3>Titre de niveau 3</h3>
-                </section>
+          </code></pre>
+          <p>Aperçu :</p>
+          <h1>Titre de niveau 1</h1>
+          <h2>Titre de niveau 2</h2>
+          <h3>Titre de niveau 3</h3>
+        </section>
 
-                <section class="section">
-                    <h2>&lt;p&gt; - Paragraphe</h2>
-                    <p><strong>Rôle :</strong> Contenir du texte.</p>
-                    <pre><code>
+        <section class="section">
+          <h2>&lt;p&gt; - Paragraphe</h2>
+          <p><strong>Rôle :</strong> Contenir du texte.</p>
+          <pre><code>
 &lt;p&gt;Ceci est un paragraphe.&lt;/p&gt;
-                    </code></pre>
-                    <p>Aperçu :</p>
-                    <p>Ceci est un paragraphe.</p>
-                </section>
+          </code></pre>
+          <p>Aperçu :</p>
+          <p>Ceci est un paragraphe.</p>
+        </section>
 
-                <section class="section">
-                    <h2>&lt;strong&gt; et &lt;em&gt; - Mise en valeur</h2>
-                    <p><strong>Rôle :</strong> Ajouter de l'importance ou de l'emphase au texte.</p>
-                    <pre><code>
+        <section class="section">
+          <h2>&lt;strong&gt; et &lt;em&gt; - Mise en valeur</h2>
+          <p><strong>Rôle :</strong> Ajouter de l'importance ou de l'emphase au texte.</p>
+          <pre><code>
 &lt;strong&gt;Texte important&lt;/strong&gt;
 &lt;em&gt;Texte en emphase&lt;/em&gt;
-                    </code></pre>
-                    <p>Aperçu :</p>
-                    <p><strong>Texte important</strong></p>
-                    <p><em>Texte en emphase</em></p>
-                </section>
+          </code></pre>
+          <p>Aperçu :</p>
+          <p><strong>Texte important</strong></p>
+          <p><em>Texte en emphase</em></p>
+        </section>
 
-                <section class="section">
-                    <h2>&lt;ul&gt;, &lt;ol&gt;, &lt;li&gt; - Listes</h2>
-                    <p><strong>Rôle :</strong> Créer des listes ordonnées ou non ordonnées.</p>
-                    <pre><code>
+        <section class="section">
+          <h2>&lt;ul&gt;, &lt;ol&gt;, &lt;li&gt; - Listes</h2>
+          <p><strong>Rôle :</strong> Créer des listes ordonnées ou non ordonnées.</p>
+          <pre><code>
 &lt;ul&gt;
   &lt;li&gt;Élément 1&lt;/li&gt;
   &lt;li&gt;Élément 2&lt;/li&gt;
@@ -203,66 +203,180 @@
   &lt;li&gt;Premier élément&lt;/li&gt;
   &lt;li&gt;Deuxième élément&lt;/li&gt;
 &lt;/ol&gt;
-                    </code></pre>
-                    <p>Aperçu :</p>
-                    <ul>
-                        <li>Élément 1</li>
-                        <li>Élément 2</li>
-                    </ul>
-                    <ol>
-                        <li>Premier élément</li>
-                        <li>Deuxième élément</li>
-                    </ol>
-                </section>
+          </code></pre>
+          <p>Aperçu :</p>
+          <ul>
+            <li>Élément 1</li>
+            <li>Élément 2</li>
+          </ul>
+          <ol>
+            <li>Premier élément</li>
+            <li>Deuxième élément</li>
+          </ol>
+        </section>
 
-                <section class="section">
-                    <h2>&lt;a&gt; - Lien hypertexte</h2>
-                    <p><strong>Rôle :</strong> Créer un lien vers une autre page ou ressource.</p>
-                    <pre><code>
+        <section class="section">
+          <h2>&lt;a&gt; - Lien hypertexte</h2>
+          <p><strong>Rôle :</strong> Créer un lien vers une autre page ou ressource.</p>
+          <pre><code>
 &lt;a href="https://www.example.com"&gt;Visiter un site&lt;/a&gt;
-                    </code></pre>
-                    <p>Aperçu :</p>
-                    <a href="https://www.example.com">Visiter un site</a>
-                </section>
+          </code></pre>
+          <p>Aperçu :</p>
+          <a href="https://www.example.com">Visiter un site</a>
+        </section>
 
-                <section class="section">
-                    <h2>&lt;img&gt; - Image</h2>
-                    <p><strong>Rôle :</strong> Afficher une image.</p>
-                    <pre><code>
+        <section class="section">
+          <h2>&lt;img&gt; - Image</h2>
+          <p><strong>Rôle :</strong> Afficher une image.</p>
+          <pre><code>
 &lt;img src="exemple.jpg" alt="Description de l'image" /&gt;
-                    </code></pre>
-                    <p>Aperçu :</p>
-                    <p>(L'image s'afficherait ici si une source était spécifiée.)</p>
-                </section>
+          </code></pre>
+          <p>Aperçu :</p>
+          <p>(L'image s'afficherait ici si une source était spécifiée.)</p>
+        </section>
 
-                <section class="section">
-                    <h2>&lt;table&gt;, &lt;tr&gt;, &lt;td&gt; - Tableaux</h2>
-                    <p><strong>Rôle :</strong> Organiser des données tabulaires.</p>
-                    <pre><code>
+        <section class="section">
+          <h2>&lt;table&gt;, &lt;tr&gt;, &lt;td&gt; - Tableaux</h2>
+          <p><strong>Rôle :</strong> Organiser des données tabulaires.</p>
+          <pre><code>
 &lt;table&gt;
   &lt;tr&gt;
     &lt;td&gt;Cellule 1&lt;/td&gt;
     &lt;td&gt;Cellule 2&lt;/td&gt;
   &lt;/tr&gt;
 &lt;/table&gt;
-                    </code></pre>
-                    <p>Aperçu :</p>
-                    <table border="1">
-                        <tr>
-                            <td>Cellule 1</td>
-                            <td>Cellule 2</td>
-                        </tr>
-                    </table>
-                </section>
-            </main>
+          </code></pre>
+          <p>Aperçu :</p>
+          <table border="1">
+            <tr>
+              <td>Cellule 1</td>
+              <td>Cellule 2</td>
+            </tr>
+          </table>
+        </section>
+      </section>
+      
+      <!-- Exercice 2 : SQL et Modèles de données -->
+      <section id="exercice2" style="display: none;" class="section">
+        <h1>1. Le langage SQL</h1>
+        <h2><dd>1.1. Définition</dd></h2>
+        <p>Le langage <b>SQL</b> (<b>S</b>tructured <b>Q</b>uery <b>L</b>anguage ou Langage de requêtes structuré) est un langage comprenant à lui seul l’ensemble
+          des ordres nécessaires à la création et à la gestion d’une base de données relationnelle. Il a été créé en 1986 et est en fait
+          l’aboutissement de plusieurs langages (Sequel en 1977, System/R, …) créés depuis l’apparition du modèle relationnel en 1970
+          (le modèle relationnel a été inventé par Mr Codd, un mathématicien de chez IBM). L'utilisation du langage SQL suppose
+          obligatoirement que les données aient été définies selon le modèle relationnel au sein d'un SGBDR (Oracle ©, SQLServer, mySQL,
+          PostgreSQL…).</p>
+        <h2><dd>1.2. Les différentes normes utilisées</dd></h2>
+        <p>Il existe aujourd'hui plusieurs normes relatives à l'utilisation du <b><u>langage SQL</u></b>. La différence entre ces normes se situe
+          principalement dans l'écriture des jointures et l'ajout de fonctionnalités. :
+          <ul style="list-style-type: '- '">
+            <li>La norme <strong>SQL 89</strong> qui est encore très utilisée actuellement.</li>
+            <li>La norme <strong>SQL 92</strong>.</li>
+            <li>Aujourd'hui <strong>SQL 2011</strong>.</li>
+          </ul>
+          Bien qu'il existe des normes, il peut y avoir des différences entre SGBDR dans la syntaxe. Ainsi, sur le site de <b><u>PostgreSQL</u></b> on peut lire :</p>
+        <ul>
+          <li>
+            <i>"Le développement de <big><em>PostgreSQL™</em></big> respecte le standard en vigueur, tant que celui-ci ne s'oppose pas aux fonctionnalités
+            traditionnelles ou au bon sens…"</i>
+          </li>
+          <li>
+            <i>"SQL-92 définit trois niveaux de conformité : basique (<em>ENTRY</em>), intermédiaire (<em>INTERMEDIATE</em>) et complète (<em>FULL</em>). La majorité des
+            systèmes de gestion de bases de données se prétendaient compatibles au standard SQL dès lors qu'ils se conformaient au niveau
+            Entry"</i>
+          </li>
+        </ul>
+        <h1>2. Le modèle de données utilisé dans le cours</h1>
+        <h2><dd>2.1. Le modèle entité-association (ou MCD) d'un établissement hospitalier</dd></h2>
+        <h2><dd>2.2. Le modèle relationnel (ou MRD) d'un établissement hospitalier</dd></h2>
+        <h2><dd>2.3. La description textuelle des tables utilisées</dd></h2>
+        <code><mark><strong>fonction_personnel</strong></mark> (<u>code_fonction</u>, libelle_fonction)
+          <dd>Clé primaire : code_fonction</dd></code>
+        <br>
+        <code><mark><strong>service</strong></mark> (num_service, libelle_service, capacite_accueil, date_ouverture)
+          <dd>Clé primaire : num_service</dd></code>
+      </section>
+      
+      <!-- Exercice 3 : CV de Hugo Payet -->
+      <section id="exercice3" style="display: none;" class="section cv-container">
+        <div class="header">
+          <h1>Hugo Payet</h1>
+          <p>Étudiant en BTS SIO Option SISR</p>
         </div>
+        <div class="section">
+          <h2>Coordonnées</h2>
+          <p>📍 15 Rue Mozart, 26500, Bourg-Lès-Valence</p>
+          <p>📞 (+33) 6 45 59 00 88</p>
+          <p>📧 <a href="mailto:2026-sio.payet-h@algoudlaffemas.fr">2026-sio.payet-h@algoudlaffemas.fr</a></p>
+          <p>🔗 <a href="https://bold.pro/my/hugo-payet" target="_blank">Profil en ligne</a></p>
+        </div>
+        <div class="section">
+          <h2>Parcours Professionnel</h2>
+          <h3>Stagiaire - LD Système Informatique</h3>
+          <ul>
+            <li>Réparation et diagnostic d'appareils divers</li>
+            <li>Préparation et configuration de serveurs</li>
+            <li>Dépannage de serveurs</li>
+          </ul>
+          <h3>Stagiaire - C'Cash</h3>
+          <ul>
+            <li>Réparation d'équipements divers</li>
+            <li>Assistance clientèle en magasin</li>
+          </ul>
+          <h3>Bénévole - ADRA FRANCE</h3>
+          <ul>
+            <li>Optimisation financière</li>
+            <li>Maintenance informatique</li>
+            <li>Gestion des comptes</li>
+          </ul>
+        </div>
+        <div class="section">
+          <h2>Formation</h2>
+          <h3>BTS Système Informatique aux Organisations (SIO)</h3>
+          <p>Lycée Algoud-Laffemas - Valence (2024 - En cours)</p>
+          <h3>Baccalauréat professionnel Système Numérique (SN)</h3>
+          <p>Lycée Algoud-Laffemas - Mention Très Bien (2021 - 2024)</p>
+        </div>
+        <div class="section">
+          <h2>Compétences</h2>
+          <ul>
+            <li>Suites bureautiques - Avancé</li>
+            <li>Flexibilité et adaptation - Avancé</li>
+            <li>Esprit d'analyse et résolution de problèmes - Avancé</li>
+            <li>Rigueur et organisation - Avancé</li>
+            <li>Collaboration - Expert</li>
+          </ul>
+        </div>
+        <div class="section">
+          <h2>Certificats</h2>
+          <p>Permis de catégorie AM</p>
+        </div>
+        <div class="section">
+          <h2>Langues</h2>
+          <ul>
+            <li>Français - Langue maternelle</li>
+            <li>Anglais - Intermédiaire</li>
+          </ul>
+        </div>
+        <div class="section">
+          <h2>Centres d'intérêt</h2>
+          <ul>
+            <li>La lecture</li>
+            <li>Le cinéma</li>
+            <li>La musique</li>
+            <li>Les nouvelles technologies</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </div>
   
-  <!-- Barre de navigation en bas pour TP4 et TP5 -->
+  <!-- Navigation en bas pour TP4 et TP5 -->
   <nav class="bottom-nav">
     <a href="https://3zephyr3.github.io/B1-Web-Cours-HTML/tphtml/public_html/TP4_HTML/" target="_blank">TP4</a>
     <a href="https://3zephyr3.github.io/B1-Web-Cours-HTML/tphtml/public_html/TP5_HTML/" target="_blank">TP5</a>
   </nav>
-
+  
   <footer>
     <p>Page HTML réalisé par Hugo Payet.</p>
   </footer>
