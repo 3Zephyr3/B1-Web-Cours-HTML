@@ -33,6 +33,7 @@
             transform: rotateY(0deg);
             transition: transform 0.5s ease-in-out;
             perspective: 1000px;
+            position: relative;
         }
         .card img {
             width: 100px;
@@ -45,8 +46,10 @@
         .card.revealed img {
             display: block;
         }
-        .matched {
-            visibility: hidden;
+        .card.matched {
+            visibility: visible;
+            opacity: 0.3;
+            pointer-events: none;
         }
         .matched-list {
             position: absolute;
@@ -78,13 +81,15 @@
         let matchedPairs = 0;
         let timer = 0;
         let timerInterval;
+        let gameStarted = false;
 
         function startTimer() {
-            timer = 0;
-            clearInterval(timerInterval);
-            timerInterval = setInterval(() => {
-                document.getElementById("timer").textContent = ++timer;
-            }, 1000);
+            if (!gameStarted) {
+                gameStarted = true;
+                timerInterval = setInterval(() => {
+                    document.getElementById("timer").textContent = ++timer;
+                }, 1000);
+            }
         }
 
         function shuffle(array) {
@@ -114,10 +119,10 @@
                 card.appendChild(img);
                 gameBoard.appendChild(card);
             });
-            startTimer();
         }
 
         function revealCard(card) {
+            startTimer();
             if (lockBoard || card === firstCard || card.classList.contains("revealed")) return;
             card.classList.add("revealed");
             if (!firstCard) {
@@ -131,7 +136,7 @@
 
         function checkForMatch() {
             if (firstCard.dataset.pair === secondCard.dataset.pair) {
-                moveToMatchedList();
+                markMatched();
                 matchedPairs++;
                 if (matchedPairs === 10) endGame();
             } else {
@@ -139,12 +144,10 @@
             }
         }
 
-        function moveToMatchedList() {
+        function markMatched() {
             setTimeout(() => {
-                document.getElementById("matched-list").appendChild(firstCard.firstChild.cloneNode(true));
-                document.getElementById("matched-list").appendChild(secondCard.firstChild.cloneNode(true));
-                firstCard.remove();
-                secondCard.remove();
+                firstCard.classList.add("matched");
+                secondCard.classList.add("matched");
                 resetBoard();
             }, 500);
         }
@@ -169,7 +172,10 @@
 
         function restartGame() {
             matchedPairs = 0;
-            document.getElementById("matched-list").innerHTML = "";
+            gameStarted = false;
+            timer = 0;
+            document.getElementById("timer").textContent = "0";
+            clearInterval(timerInterval);
             generateCards();
         }
 
