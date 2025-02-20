@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TP6 - Tableaux, Images et Liens</title>
+  <style>
+    /* Réinitialisation */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    header {
+      width: 100%;
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      margin-bottom: 20px;
+    }
+    header h1 {
+      font-size: 2.5em;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      background: white;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    .section {
+      margin: 30px 0;
+    }
+    .section h2 {
+      background-color: #2c3e50;
+      color: white;
+      padding: 10px;
+      margin-bottom: 10px;
+      font-size: 1.5em;
+    }
+    .section h3 {
+      margin: 15px 0;
+      font-size: 1.3em;
+      color: #34495e;
+    }
+    .section p, .section ul, .section table, .section pre {
+      padding: 10px;
+      line-height: 1.5;
+    }
+    pre {
+      background: #272822;
+      color: #f8f8f2;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 10px;
+    }
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+    th, td {
+      padding: 8px;
+      text-align: center;
+    }
+    caption {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    a {
+      color: #3498db;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      width: 100%;
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- En-tête principal -->
+  <header>
+    <h1>TP WEB</h1>
+  </header>
+
+  <div class="container">
+    <!-- TP6 - Exercice 1 : Reproduction d'un tableau -->
+    <section class="section" id="ex1">
+      <h2>Exercice 1 : Reproduire un tableau</h2>
+      <p>Écrire le code HTML permettant de reproduire la structure du tableau suivant. (HTML en premier, CSS ensuite)</p>
+      
+      <h3>Code HTML :</h3>
+      <pre><code>&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Colonne 1&lt;/th&gt;
+      &lt;th&gt;Colonne 2&lt;/th&gt;
+      &lt;th&gt;Colonne 3&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Ligne 1, Cellule 1&lt;/td&gt;
+      &lt;td&gt;Ligne 1, Cellule 2&lt;/td&gt;
+      &lt;td&gt;Ligne 1, Cellule 3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Ligne 2, Cellule 1&lt;/td&gt;
+      &lt;td&gt;Ligne 2, Cellule 2&lt;/td&gt;
+      &lt;td&gt;Ligne 2, Cellule 3&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+      </code></pre>
+      
+      <h3>Aperçu :</h3>
+      <table>
+        <caption>Exemple de tableau</caption>
+        <thead>
+          <tr>
+            <th>Colonne 1</th>
+            <th>Colonne 2</th>
+            <th>Colonne 3</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Ligne 1, Cellule 1</td>
+            <td>Ligne 1, Cellule 2</td>
+            <td>Ligne 1, Cellule 3</td>
+          </tr>
+          <tr>
+            <td>Ligne 2, Cellule 1</td>
+            <td>Ligne 2, Cellule 2</td>
+            <td>Ligne 2, Cellule 3</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- TP6 - Exercice 2 : Tableau des langages de script côté serveur -->
+    <section class="section" id="ex2">
+      <h2>Exercice 2 : Tableau des langages de script côté serveur</h2>
+      <p>Présenter un tableau HTML présentant les différents langages de script côté serveur avec les colonnes suivantes :</p>
+      <ul>
+        <li>Logo (clic pour afficher l'image en taille réelle)</li>
+        <li>Nom abrégé</li>
+        <li>Nom complet</li>
+        <li>Année de sortie</li>
+        <li>Site web de référence</li>
+        <li>Exemple de code</li>
+      </ul>
+      
+      <h3>Code HTML :</h3>
+      <pre><code>&lt;table&gt;
+  &lt;caption&gt;Langages de script côté serveur&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Logo&lt;/th&gt;
+      &lt;th&gt;Nom abrégé&lt;/th&gt;
+      &lt;th&gt;Nom complet&lt;/th&gt;
+      &lt;th&gt;Année&lt;/th&gt;
+      &lt;th&gt;Site Web&lt;/th&gt;
+      &lt;th&gt;Exemple de code&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href="Images/php.png" target="_blank" title="PHP Logo"&gt;&lt;img src="Images/php.png" alt="PHP" style="width:50px;"&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;PHP&lt;/td&gt;
+      &lt;td&gt;PHP: Hypertext Preprocessor&lt;/td&gt;
+      &lt;td&gt;1995&lt;/td&gt;
+      &lt;td&gt;&lt;a href="https://www.php.net" target="_blank" title="Site officiel PHP"&gt;php.net&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;&lt;?php echo "Hello, World!"; ?&gt;&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href="Images/jsp.png" target="_blank" title="JSP Logo"&gt;&lt;img src="Images/jsp.png" alt="JSP" style="width:50px;"&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;JSP&lt;/td&gt;
+      &lt;td&gt;JavaServer Pages&lt;/td&gt;
+      &lt;td&gt;1999&lt;/td&gt;
+      &lt;td&gt;&lt;a href="https://www.oracle.com/java/technologies/jsptutorial.html" target="_blank" title="Site officiel JSP"&gt;oracle.com&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;&lt;% out.println("Hello JSP"); %&gt;&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href="Images/asp.png" target="_blank" title="ASP Logo"&gt;&lt;img src="Images/asp.png" alt="ASP" style="width:50px;"&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;ASP&lt;/td&gt;
+      &lt;td&gt;Active Server Pages&lt;/td&gt;
+      &lt;td&gt;1996&lt;/td&gt;
+      &lt;td&gt;&lt;a href="https://learn.microsoft.com/en-us/previous-versions/iis/6.0-sdk/ms525102(v=vs.90)" target="_blank" title="Site officiel ASP"&gt;microsoft.com&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;&lt;% Response.Write("Hello ASP") %&gt;&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href="Images/ruby.png" target="_blank" title="Ruby Logo"&gt;&lt;img src="Images/ruby.png" alt="Ruby" style="width:50px;"&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Ruby&lt;/td&gt;
+      &lt;td&gt;Ruby&lt;/td&gt;
+      &lt;td&gt;1995&lt;/td&gt;
+      &lt;td&gt;&lt;a href="https://www.ruby-lang.org" target="_blank" title="Site officiel Ruby"&gt;ruby-lang.org&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;puts "Hello, World!"&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href="Images/perl.png" target="_blank" title="Perl Logo"&gt;&lt;img src="Images/perl.png" alt="Perl" style="width:50px;"&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Perl&lt;/td&gt;
+      &lt;td&gt;Practical Extraction and Report Language&lt;/td&gt;
+      &lt;td&gt;1987&lt;/td&gt;
+      &lt;td&gt;&lt;a href="https://www.perl.org" target="_blank" title="Site officiel Perl"&gt;perl.org&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;print "Hello, World!\n";&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href="Images/python.png" target="_blank" title="Python Logo"&gt;&lt;img src="Images/python.png" alt="Python" style="width:50px;"&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Python&lt;/td&gt;
+      &lt;td&gt;Python&lt;/td&gt;
+      &lt;td&gt;1991&lt;/td&gt;
+      &lt;td&gt;&lt;a href="https://www.python.org" target="_blank" title="Site officiel Python"&gt;python.org&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;print("Hello, World!")&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Légende : Ce tableau présente quelques langages de script côté serveur avec leurs informations essentielles.&lt;/p&gt;
+      </pre>
+      
+      <h3>Aperçu :</h3>
+      <table>
+        <caption>Langages de script côté serveur</caption>
+        <thead>
+          <tr>
+            <th>Logo</th>
+            <th>Nom abrégé</th>
+            <th>Nom complet</th>
+            <th>Année</th>
+            <th>Site Web</th>
+            <th>Exemple de code</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <a href="Images/php.png" target="_blank" title="PHP Logo">
+                <img src="Images/php.png" alt="PHP" style="width:50px;">
+              </a>
+            </td>
+            <td>PHP</td>
+            <td>PHP: Hypertext Preprocessor</td>
+            <td>1995</td>
+            <td>
+              <a href="https://www.php.net" target="_blank" title="Site officiel PHP">php.net</a>
+            </td>
+            <td><code>&lt;?php echo "Hello, World!"; ?&gt;</code></td>
+          </tr>
+          <tr>
+            <td>
+              <a href="Images/jsp.png" target="_blank" title="JSP Logo">
+                <img src="Images/jsp.png" alt="JSP" style="width:50px;">
+              </a>
+            </td>
+            <td>JSP</td>
+            <td>JavaServer Pages</td>
+            <td>1999</td>
+            <td>
+              <a href="https://www.oracle.com/java/technologies/jsptutorial.html" target="_blank" title="Site officiel JSP">oracle.com</a>
+            </td>
+            <td><code>&lt;% out.println("Hello JSP"); %&gt;</code></td>
+          </tr>
+          <tr>
+            <td>
+              <a href="Images/asp.png" target="_blank" title="ASP Logo">
+                <img src="Images/asp.png" alt="ASP" style="width:50px;">
+              </a>
+            </td>
+            <td>ASP</td>
+            <td>Active Server Pages</td>
+            <td>1996</td>
+            <td>
+              <a href="https://learn.microsoft.com/en-us/previous-versions/iis/6.0-sdk/ms525102(v=vs.90)" target="_blank" title="Site officiel ASP">microsoft.com</a>
+            </td>
+            <td><code>&lt;% Response.Write("Hello ASP") %&gt;</code></td>
+          </tr>
+          <tr>
+            <td>
+              <a href="Images/ruby.png" target="_blank" title="Ruby Logo">
+                <img src="Images/ruby.png" alt="Ruby" style="width:50px;">
+              </a>
+            </td>
+            <td>Ruby</td>
+            <td>Ruby</td>
+            <td>1995</td>
+            <td>
+              <a href="https://www.ruby-lang.org" target="_blank" title="Site officiel Ruby">ruby-lang.org</a>
+            </td>
+            <td><code>puts "Hello, World!"</code></td>
+          </tr>
+          <tr>
+            <td>
+              <a href="Images/perl.png" target="_blank" title="Perl Logo">
+                <img src="Images/perl.png" alt="Perl" style="width:50px;">
+              </a>
+            </td>
+            <td>Perl</td>
+            <td>Practical Extraction and Report Language</td>
+            <td>1987</td>
+            <td>
+              <a href="https://www.perl.org" target="_blank" title="Site officiel Perl">perl.org</a>
+            </td>
+            <td><code>print "Hello, World!\n";</code></td>
+          </tr>
+          <tr>
+            <td>
+              <a href="Images/python.png" target="_blank" title="Python Logo">
+                <img src="Images/python.png" alt="Python" style="width:50px;">
+              </a>
+            </td>
+            <td>Python</td>
+            <td>Python</td>
+            <td>1991</td>
+            <td>
+              <a href="https://www.python.org" target="_blank" title="Site officiel Python">python.org</a>
+            </td>
+            <td><code>print("Hello, World!")</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    
+    <!-- TP6 - Exercice 3 : Calendrier -->
+    <section class="section" id="ex3">
+      <h2>Exercice 3 : Calendrier d'Avril 2024</h2>
+      <p>Reproduire un calendrier pour le mois d'Avril 2024.</p>
+      
+      <h3>Code HTML :</h3>
+      <pre><code>&lt;table&gt;
+  &lt;caption&gt;Calendrier d'Avril 2024&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Lundi&lt;/th&gt;
+      &lt;th&gt;Mardi&lt;/th&gt;
+      &lt;th&gt;Mercredi&lt;/th&gt;
+      &lt;th&gt;Jeudi&lt;/th&gt;
+      &lt;th&gt;Vendredi&lt;/th&gt;
+      &lt;th&gt;Samedi&lt;/th&gt;
+      &lt;th&gt;Dimanche&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;5&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;7&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;8&lt;/td&gt;
+      &lt;td&gt;9&lt;/td&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;11&lt;/td&gt;
+      &lt;td&gt;12&lt;/td&gt;
+      &lt;td&gt;13&lt;/td&gt;
+      &lt;td&gt;14&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;15&lt;/td&gt;
+      &lt;td&gt;16&lt;/td&gt;
+      &lt;td&gt;17&lt;/td&gt;
+      &lt;td&gt;18&lt;/td&gt;
+      &lt;td&gt;19&lt;/td&gt;
+      &lt;td&gt;20&lt;/td&gt;
+      &lt;td&gt;21&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;22&lt;/td&gt;
+      &lt;td&gt;23&lt;/td&gt;
+      &lt;td&gt;24&lt;/td&gt;
+      &lt;td&gt;25&lt;/td&gt;
+      &lt;td&gt;26&lt;/td&gt;
+      &lt;td&gt;27&lt;/td&gt;
+      &lt;td&gt;28&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;29&lt;/td&gt;
+      &lt;td&gt;30&lt;/td&gt;
+      &lt;td colspan="5"&gt;&nbsp;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+      </code></pre>
+      
+      <h3>Aperçu :</h3>
+      <table>
+        <caption>Calendrier d'Avril 2024</caption>
+        <thead>
+          <tr>
+            <th>Lundi</th>
+            <th>Mardi</th>
+            <th>Mercredi</th>
+            <th>Jeudi</th>
+            <th>Vendredi</th>
+            <th>Samedi</th>
+            <th>Dimanche</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td>16</td>
+            <td>17</td>
+            <td>18</td>
+            <td>19</td>
+            <td>20</td>
+            <td>21</td>
+          </tr>
+          <tr>
+            <td>22</td>
+            <td>23</td>
+            <td>24</td>
+            <td>25</td>
+            <td>26</td>
+            <td>27</td>
+            <td>28</td>
+          </tr>
+          <tr>
+            <td>29</td>
+            <td>30</td>
+            <td colspan="5">&nbsp;</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+  </div>
+  
+  <footer>
+    <p>Page TP6 réalisée par Hugo Payet.</p>
+  </footer>
+</body>
+</html>
