@@ -42,6 +42,32 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       margin-bottom: 20px;
     }
+    /* Sommaire */
+    #tp6-toc {
+      margin-bottom: 20px;
+      padding: 10px;
+      background-color: #ecf0f1;
+      border-left: 4px solid #2c3e50;
+    }
+    #tp6-toc h2 {
+      font-size: 1.4em;
+      margin-bottom: 10px;
+      color: #2c3e50;
+    }
+    #tp6-toc ul {
+      list-style: none;
+    }
+    #tp6-toc ul li {
+      margin-bottom: 8px;
+    }
+    #tp6-toc ul li a {
+      text-decoration: none;
+      color: #3498db;
+      transition: color 0.3s;
+    }
+    #tp6-toc ul li a:hover {
+      color: #2980b9;
+    }
     .section {
       margin: 30px 0;
     }
@@ -108,10 +134,16 @@
   </header>
 
   <div class="container">
-    <!-- TP6 - Exercice 1 : Reproduction d'un tableau -->
-    <section class="section" id="ex1">
+    <!-- Sommaire TP6 -->
+    <nav id="tp6-toc">
+      <h2>Sommaire</h2>
+      <ul id="tp6-toc-list">Chargement du sommaire...</ul>
+    </nav>
+
+    <!-- Exercice 1 -->
+    <section id="ex1" class="section">
       <h2>Exercice 1 : Reproduire un tableau</h2>
-      <p>Écrire le code HTML permettant de reproduire la structure du tableau suivant. (HTML en premier, CSS ensuite)</p>
+      <p>Écrire le code HTML permettant de reproduire la structure du tableau suivant (HTML en premier, puis la mise en forme en CSS).</p>
       
       <h3>Code HTML :</h3>
       <pre><code>&lt;table&gt;
@@ -162,10 +194,10 @@
       </table>
     </section>
 
-    <!-- TP6 - Exercice 2 : Tableau des langages de script côté serveur -->
-    <section class="section" id="ex2">
+    <!-- Exercice 2 -->
+    <section id="ex2" class="section">
       <h2>Exercice 2 : Tableau des langages de script côté serveur</h2>
-      <p>Présenter un tableau HTML présentant les différents langages de script côté serveur avec les colonnes suivantes :</p>
+      <p>Présenter un tableau HTML présentant les différents langages de script côté serveur (PHP, JSP, ASP, Ruby, Perl, Python). Le tableau doit inclure :</p>
       <ul>
         <li>Logo (clic pour afficher l'image en taille réelle)</li>
         <li>Nom abrégé</li>
@@ -212,7 +244,6 @@
       &lt;td&gt;1996&lt;/td&gt;
       &lt;td&gt;&lt;a href="https://learn.microsoft.com/en-us/previous-versions/iis/6.0-sdk/ms525102(v=vs.90)" target="_blank" title="Site officiel ASP"&gt;microsoft.com&lt;/a&gt;&lt;/td&gt;
       &lt;td&gt;&lt;code&gt;&lt;% Response.Write("Hello ASP") %&gt;&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;a href="Images/ruby.png" target="_blank" title="Ruby Logo"&gt;&lt;img src="Images/ruby.png" alt="Ruby" style="width:50px;"&gt;&lt;/a&gt;&lt;/td&gt;
       &lt;td&gt;Ruby&lt;/td&gt;
@@ -344,8 +375,8 @@
       </table>
     </section>
     
-    <!-- TP6 - Exercice 3 : Calendrier -->
-    <section class="section" id="ex3">
+    <!-- Exercice 3 : Calendrier -->
+    <section id="ex3" class="section">
       <h2>Exercice 3 : Calendrier d'Avril 2024</h2>
       <p>Reproduire un calendrier pour le mois d'Avril 2024.</p>
       
@@ -474,5 +505,27 @@
   <footer>
     <p>Page TP6 réalisée par Hugo Payet.</p>
   </footer>
+  
+  <!-- Script pour générer automatiquement le sommaire des exercices TP6 -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var tocList = document.getElementById("tp6-toc-list");
+      // Sélectionne toutes les sections dont l'id commence par "ex" (ex1, ex2, ex3)
+      var sections = document.querySelectorAll("section[id^='ex']");
+      tocList.innerHTML = "";
+      sections.forEach(function(section) {
+        var li = document.createElement("li");
+        // Cherche le premier h2 dans la section
+        var h2 = section.querySelector("h2");
+        if (h2) {
+          var a = document.createElement("a");
+          a.textContent = h2.textContent;
+          a.href = "#" + section.id;
+          li.appendChild(a);
+          tocList.appendChild(li);
+        }
+      });
+    });
+  </script>
 </body>
 </html>
