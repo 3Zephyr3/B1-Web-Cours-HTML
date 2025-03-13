@@ -120,6 +120,34 @@
     a:hover {
       text-decoration: underline;
     }
+    /* Styles pour les diagrammes de zoning */
+    .zoning {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      border: 2px dashed #3498db;
+      padding: 10px;
+      margin-top: 15px;
+    }
+    .zone {
+      border: 2px solid #2c3e50;
+      background-color: #ecf0f1;
+      width: 150px;
+      height: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+    .zone span {
+      display: block;
+      margin-top: 5px;
+      font-size: 0.9em;
+      font-weight: normal;
+    }
     /* Footer */
     footer {
       width: 100%;
@@ -144,7 +172,7 @@
       <ul id="tp7-toc-list">Chargement du sommaire...</ul>
     </nav>
     
-    <!-- Exercice 1 -->
+    <!-- Exercice 1 : Zoning à partir d'un lien -->
     <section id="ex1" class="section">
       <h2>Exercice 1 : Zoning à partir d'un lien</h2>
       <p>
@@ -153,52 +181,184 @@
           http://j-willette.developpez.com/tutoriels/html/les-bases-du-html/?page=page_1
         </a>
       </p>
-      <ul>
-        <li>Utiliser l'inspecteur d'élément pour représenter sous forme de boîtes le zoning de la page.</li>
-        <li>Préciser pour chaque zone la balise utilisée.</li>
-        <li>Pour la partie article, noter l'architecture du site.</li>
-      </ul>
+      <p>
+        Utilisez l'inspecteur d'élément pour représenter sous forme de boîtes le zoning de la page. Indiquez pour chaque zone la balise utilisée. Pour la partie article, notez l'architecture du site.
+      </p>
+      <div class="zoning">
+         <div class="zone">Header<br><span>&lt;header&gt;</span></div>
+         <div class="zone">Menu 1<br><span>&lt;nav&gt;</span></div>
+         <div class="zone">Recherche<br><span>&lt;form&gt;</span></div>
+         <div class="zone">Logo / Pub<br><span>&lt;div&gt;</span></div>
+         <div class="zone">Menu 2<br><span>&lt;nav&gt;</span></div>
+         <div class="zone">Article<br><span>&lt;article&gt;</span></div>
+         <div class="zone">Footer<br><span>&lt;footer&gt;</span></div>
+      </div>
     </section>
     
-    <!-- Exercice 2 -->
+    <!-- Exercice 2 : Reproduire le zoning d'une page -->
     <section id="ex2" class="section">
       <h2>Exercice 2 : Reproduire le zoning d'une page</h2>
       <p>
-        Reproduire le zoning d'une ou plusieurs pages. Dans cet exercice, on ne s'intéresse qu'à la structure (le zoning) de la page et non à son contenu.  
-        <br>Réaliser un fichier CSS séparé et une page web pour chaque exercice, en veillant à ce que la page garde ses proportions.
+        Reproduisez le zoning d'une page web en vous concentrant uniquement sur la structure et non sur le contenu. L'objectif est de créer une maquette qui garde ses proportions.
       </p>
+      <p>Voici un exemple générique :</p>
+      <div class="zoning">
+         <div class="zone">En-tête<br><span>&lt;header&gt;</span></div>
+         <div class="zone">Navigation<br><span>&lt;nav&gt;</span></div>
+         <div class="zone">Contenu<br><span>&lt;article&gt; ou &lt;section&gt;</span></div>
+         <div class="zone">Barre latérale<br><span>&lt;aside&gt;</span></div>
+         <div class="zone">Pied de page<br><span>&lt;footer&gt;</span></div>
+      </div>
     </section>
     
-    <!-- Exercice 3 -->
+    <!-- Exercice 3 : Calendrier d'Avril 2024 -->
     <section id="ex3" class="section">
-      <h2>Exercice 3 : Exemple de zoning d'une page web</h2>
-      <p>
-        Ci-dessous, un exemple de zoning réalisé en utilisant l'inspecteur et des boîtes. Ce code représente la structure d'une page web avec ses zones (entête, menus, contenu, pied de page) et précise pour chaque zone la balise utilisée.
-      </p>
-      <h3>Code HTML de l'exemple :</h3>
-      <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;title&gt;TODO supply a title&lt;/title&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;style&gt;
-      .entete {
-        border: 1px solid;
-      }
-      .menu1 {
-        border: 1px solid blue;
-        height: 30px;
-        display: inline-block;
-        float: left;
-        margin: 1px;
-      }
-      .recherche {
-        border: 1px solid red;
-        height: 30px;
-        float: right;
-        margin: 1px;
-      }
-      .cadreLogoPub {
-        border: 1px so
-      }
+      <h2>Exercice 3 : Calendrier d'Avril 2024</h2>
+      <p>Réalisez un calendrier pour le mois d'Avril 2024.</p>
+      
+      <h3>Code HTML :</h3>
+      <pre><code>&lt;table&gt;
+  &lt;caption&gt;Calendrier d'Avril 2024&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Lundi&lt;/th&gt;
+      &lt;th&gt;Mardi&lt;/th&gt;
+      &lt;th&gt;Mercredi&lt;/th&gt;
+      &lt;th&gt;Jeudi&lt;/th&gt;
+      &lt;th&gt;Vendredi&lt;/th&gt;
+      &lt;th&gt;Samedi&lt;/th&gt;
+      &lt;th&gt;Dimanche&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;5&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;7&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;8&lt;/td&gt;
+      &lt;td&gt;9&lt;/td&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;11&lt;/td&gt;
+      &lt;td&gt;12&lt;/td&gt;
+      &lt;td&gt;13&lt;/td&gt;
+      &lt;td&gt;14&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;15&lt;/td&gt;
+      &lt;td&gt;16&lt;/td&gt;
+      &lt;td&gt;17&lt;/td&gt;
+      &lt;td&gt;18&lt;/td&gt;
+      &lt;td&gt;19&lt;/td&gt;
+      &lt;td&gt;20&lt;/td&gt;
+      &lt;td&gt;21&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;22&lt;/td&gt;
+      &lt;td&gt;23&lt;/td&gt;
+      &lt;td&gt;24&lt;/td&gt;
+      &lt;td&gt;25&lt;/td&gt;
+      &lt;td&gt;26&lt;/td&gt;
+      &lt;td&gt;27&lt;/td&gt;
+      &lt;td&gt;28&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;29&lt;/td&gt;
+      &lt;td&gt;30&lt;/td&gt;
+      &lt;td colspan="5"&gt;&amp;nbsp;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+      </code></pre>
+      
+      <h3>Aperçu :</h3>
+      <table>
+        <caption>Calendrier d'Avril 2024</caption>
+        <thead>
+          <tr>
+            <th>Lundi</th>
+            <th>Mardi</th>
+            <th>Mercredi</th>
+            <th>Jeudi</th>
+            <th>Vendredi</th>
+            <th>Samedi</th>
+            <th>Dimanche</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td>16</td>
+            <td>17</td>
+            <td>18</td>
+            <td>19</td>
+            <td>20</td>
+            <td>21</td>
+          </tr>
+          <tr>
+            <td>22</td>
+            <td>23</td>
+            <td>24</td>
+            <td>25</td>
+            <td>26</td>
+            <td>27</td>
+            <td>28</td>
+          </tr>
+          <tr>
+            <td>29</td>
+            <td>30</td>
+            <td colspan="5">&amp;nbsp;</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+  
+  <footer>
+    <p>Page TP7 réalisée par Hugo Payet.</p>
+  </footer>
+  
+  <!-- Script pour générer automatiquement le sommaire des exercices TP7 -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var tocList = document.getElementById("tp7-toc-list");
+      var sections = document.querySelectorAll("section[id^='ex']");
+      tocList.innerHTML = "";
+      sections.forEach(function(section) {
+        var li = document.createElement("li");
+        var h2 = section.querySelector("h2");
+        if (h2) {
+          var a = document.createElement("a");
+          a.textContent = h2.textContent;
+          a.href = "#" + section.id;
+          li.appendChild(a);
+          tocList.appendChild(li);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
