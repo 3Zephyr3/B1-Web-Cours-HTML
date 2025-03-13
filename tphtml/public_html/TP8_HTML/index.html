@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>TP8 - Variables, Calculs, Boîtes de dialogue, Contrôles, Fonctions</title>
+  <style>
+    /* Réinitialisation et scroll fluide */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    /* En-tête principal */
+    header {
+      width: 100%;
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      margin-bottom: 20px;
+    }
+    header h1 {
+      font-size: 2.5em;
+    }
+    /* Conteneur principal */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      background: white;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    /* Sommaire TP8 */
+    #tp8-toc {
+      margin-bottom: 20px;
+      padding: 10px;
+      background-color: #ecf0f1;
+      border-left: 4px solid #2c3e50;
+    }
+    #tp8-toc h2 {
+      font-size: 1.4em;
+      margin-bottom: 10px;
+      color: #2c3e50;
+    }
+    #tp8-toc ul {
+      list-style: none;
+    }
+    #tp8-toc ul li {
+      margin-bottom: 8px;
+    }
+    #tp8-toc ul li a {
+      text-decoration: none;
+      color: #3498db;
+      transition: color 0.3s;
+    }
+    #tp8-toc ul li a:hover {
+      color: #2980b9;
+    }
+    /* Sections */
+    .section {
+      margin: 30px 0;
+    }
+    .section h2 {
+      background-color: #2c3e50;
+      color: white;
+      padding: 10px;
+      margin-bottom: 10px;
+      font-size: 1.5em;
+    }
+    .section p, .section ul {
+      padding: 10px;
+      line-height: 1.5;
+    }
+    button {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 10px 0;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+    pre {
+      background: #272822;
+      color: #f8f8f2;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+      margin: 10px 0;
+    }
+    footer {
+      width: 100%;
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      margin-top: 20px;
+    }
+    .result-zone {
+      margin-top: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      min-height: 30px;
+      font-size: 1em;
+      background: #ecf0f1;
+    }
+  </style>
+</head>
+<body>
+  <!-- En-tête principal -->
+  <header>
+    <h1>TP WEB</h1>
+  </header>
+  
+  <div class="container">
+    <!-- Sommaire TP8 -->
+    <nav id="tp8-toc">
+      <h2>Sommaire TP8</h2>
+      <ul id="tp8-toc-list">Chargement du sommaire...</ul>
+    </nav>
+
+    <!-- EXERCICE 1 -->
+    <section id="ex1" class="section">
+      <h2>Exercice 1 : Calcul de la surface d'un rectangle (X et Y entiers)</h2>
+      <p>
+        • Les valeurs X et Y sont demandées à l'utilisateur via <code>prompt</code>.<br>
+        • On considère X et Y comme des entiers.<br>
+        • Le résultat (surface) doit être affiché dans la console et sous forme de boîte de dialogue (<code>alert</code>).
+      </p>
+      <button onclick="ex1()">Démarrer l'exercice 1</button>
+    </section>
+
+    <!-- EXERCICE 2 -->
+    <section id="ex2" class="section">
+      <h2>Exercice 2 : Confirmation avant d'utiliser X et Y</h2>
+      <p>
+        • Reprend l'exercice précédent (calcul surface).<br>
+        • Un <code>confirm</code> demande à l'utilisateur s'il souhaite valider les valeurs X et Y saisies.<br>
+        • Si oui, on affiche le résultat ; si non, on redemande la saisie, jusqu'à confirmation.<br>
+      </p>
+      <button onclick="ex2()">Démarrer l'exercice 2</button>
+    </section>
+
+    <!-- EXERCICE 3 -->
+    <section id="ex3" class="section">
+      <h2>Exercice 3 : Saisie contrôlée (pas de chaîne, pas de négatif)</h2>
+      <p>
+        • Reprend l'exercice précédent.<br>
+        • Les valeurs de X et Y doivent être des nombres (pas de chaîne, ni vide).<br>
+        • X et Y doivent être >= 0.<br>
+      </p>
+      <button onclick="ex3()">Démarrer l'exercice 3</button>
+    </section>
+
+    <!-- EXERCICE 4 -->
+    <section id="ex4" class="section">
+      <h2>Exercice 4 : Afficher le résultat dans la page (document.write)</h2>
+      <p>
+        • Reprend l'exercice précédent (contrôle de saisie).<br>
+        • Le résultat est affiché dans la page via <code>document.write()</code> (en plus ou à la place de l'alert).
+      </p>
+      <button onclick="ex4()">Démarrer l'exercice 4</button>
+      <div class="result-zone" id="res-ex4">Zone de résultat exercice 4</div>
+    </section>
+
+    <!-- EXERCICE 5 -->
+    <section id="ex5" class="section">
+      <h2>Exercice 5 : Calcul réalisé par une fonction rect()</h2>
+      <p>
+        • Reprend l'exercice précédent (contrôle de saisie, doc.write).<br>
+        • Le calcul (surface) sera effectué par une fonction <code>rect(x, y)</code> que vous écrirez.<br>
+        • On l'appellera pour obtenir le résultat.
+      </p>
+      <button onclick="ex5()">Démarrer l'exercice 5</button>
+      <div class="result-zone" id="res-ex5">Zone de résultat exercice 5</div>
+    </section>
+
+    <!-- EXERCICE 6 -->
+    <section id="ex6" class="section">
+      <h2>Exercice 6 : Table de multiplication</h2>
+      <p>
+        • Écrire une fonction qui affiche dans la page la table de multiplication choisie par l'utilisateur (via prompt).<br>
+        • Cette page s'affichera sous forme de tableau HTML (lignes et colonnes).
+      </p>
+      <button onclick="ex6()">Démarrer l'exercice 6</button>
+      <div class="result-zone" id="res-ex6">Zone de résultat exercice 6</div>
+    </section>
+
+    <!-- EXERCICE 7 -->
+    <section id="ex7" class="section">
+      <h2>Exercice 7 : Devis cimenterie Lafarge</h2>
+      <p>
+        • L’utilisateur saisit l’épaisseur (15cm à 35cm) et la surface.<br>
+        • Calculer le volume de béton (épaisseur × surface).<br>
+        • 350 kg de ciment pour 1 m3 de béton => en tonne = (nb de m3 × 350) / 1000<br>
+        • Les camions font 9 m3, on arrondit au plus grand (ex: 10,2 => 11 camions).<br>
+        • Prix du m3 de béton = 91€ HT, transport = 140€ par livraison (camion).<br>
+        • Afficher le tarif HT et TTC (20% de TVA).
+      </p>
+      <p>
+        Faire un programme JS qui :  
+        <ul>
+          <li>Demande les saisies nécessaires (épaisseur, surface).</li>
+          <li>Valide les saisies (épaisseur entre 15 et 35 ; surface > 0).</li>
+          <li>Calcule le volume, la quantité de ciment (tonnes), le nb de camions, le coût HT et TTC.</li>
+          <li>Affiche le tout via <code>document.write</code> (ou dans la zone de résultat ci-dessous).</li>
+        </ul>
+      </p>
+      <button onclick="ex7()">Démarrer l'exercice 7</button>
+      <div class="result-zone" id="res-ex7">Zone de résultat exercice 7</div>
+    </section>
+
+  </div>
+  
+  <footer>
+    <p>Page TP8 réalisée par Hugo Payet.</p>
+  </footer>
+
+  <!-- Script pour le sommaire TP8 -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var tocList = document.getElementById("tp8-toc-list");
+      var sections = document.querySelectorAll("section[id^='ex']");
+      tocList.innerHTML = "";
+      sections.forEach(function(section) {
+        var li = document.createElement("li");
+        var h2 = section.querySelector("h2");
+        if (h2) {
+          var a = document.createElement("a");
+          a.textContent = h2.textContent;
+          a.href = "#" + section.id;
+          li.appendChild(a);
+          tocList.appendChild(li);
+        }
+      });
+    });
+  </script>
+
+  <!-- Script pour exercices -->
+  <script>
+    function ex1() {
+      // Saisie X, Y => calcul surface => console + alert
+      let x = prompt("Entrez la valeur X (entier) :");
+      let y = prompt("Entrez la valeur Y (entier) :");
+      let X = parseInt(x), Y = parseInt(y);
+      let surface = X * Y;
+      console.log("Surface =", surface);
+      alert("Surface = " + surface);
+    }
+
+    function ex2() {
+      // On redemande la saisie tant que confirm = false
+      let ok = false;
+      let X, Y, surface;
+      while(!ok) {
+        let x = prompt("Entrez X (entier) :");
+        let y = prompt("Entrez Y (entier) :");
+        X = parseInt(x); Y = parseInt(y);
+        ok = confirm("Voulez-vous valider X="+X+" et Y="+Y+" ?");
+      }
+      surface = X * Y;
+      console.log("Surface =", surface);
+      alert("Surface validée = " + surface);
+    }
+
+    function ex3() {
+      // Contrôle de saisie : pas de chaîne, pas négatif
+      let X, Y;
+      while(true) {
+        let x = prompt("Entrez X (entier >= 0) :");
+        let y = prompt("Entrez Y (entier >= 0) :");
+        X = parseInt(x); Y = parseInt(y);
+        if(!isNaN(X) && !isNaN(Y) && (X >= 0) && (Y >= 0)) {
+          break; // ok
+        } else {
+          alert("Erreur : merci de saisir des nombres >=0 !");
+        }
+      }
+      let surface = X * Y;
+      console.log("Surface =", surface);
+      alert("Surface = " + surface);
+    }
+
+    function ex4() {
+      // Ex3 + document.write
+      let X, Y;
+      while(true) {
+        let x = prompt("Entrez X (entier >= 0) :");
+        let y = prompt("Entrez Y (entier >= 0) :");
+        X = parseInt(x); Y = parseInt(y);
+        if(!isNaN(X) && !isNaN(Y) && (X >= 0) && (Y >= 0)) {
+          break; // ok
+        } else {
+          alert("Erreur : merci de saisir des nombres >=0 !");
+        }
+      }
+      let surface = X * Y;
+      console.log("Surface =", surface);
+      alert("Surface = " + surface);
+
+      // On écrit dans la page
+      let zone = document.getElementById("res-ex4");
+      zone.innerHTML = "La surface calculée est : " + surface;
+    }
+
+    function rect(x, y) {
+      // Ex5 : calcule la surface
+      return x * y;
+    }
+    function ex5() {
+      // ex3 + rect() + doc.write
+      let X, Y;
+      while(true) {
+        let x = prompt("Entrez X (entier >= 0) :");
+        let y = prompt("Entrez Y (entier >= 0) :");
+        X = parseInt(x); Y = parseInt(y);
+        if(!isNaN(X) && !isNaN(Y) && (X >= 0) && (Y >= 0)) {
+          break; // ok
+        } else {
+          alert("Erreur : merci de saisir des nombres >=0 !");
+        }
+      }
+      let surface = rect(X, Y);
+      console.log("Surface (rect) =", surface);
+
+      let zone = document.getElementById("res-ex5");
+      zone.innerHTML = "Surface (via rect()) = " + surface;
+    }
+
+    function ex6() {
+      // Table de multiplication : saisie => doc in <div>
+      let n;
+      while(true) {
+        let s = prompt("Quelle table de multiplication (entier >=1) ?");
+        n = parseInt(s);
+        if(!isNaN(n) && n>=1) {
+          break;
+        } else {
+          alert("Merci de saisir un entier >=1");
+        }
+      }
+      let html = "<table border='1'><caption>Table de " + n + "</caption>";
+      for(let i=1; i<=10; i++) {
+        html += "<tr><td>"+n+" x "+i+" =</td><td>"+(n*i)+"</td></tr>";
+      }
+      html += "</table>";
+      document.getElementById("res-ex6").innerHTML = html;
+    }
+
+    function ex7() {
+      // Devis cimenterie Lafarge
+      // Epaisseur (15-35), surface >0
+      // volume = (epaisseur/100) * surface  ( => en m3 )
+      // tonne ciment = volume * 350 / 1000
+      // camions (9m3): => arrondi sup
+      // prix du m3=91€ HT ; transport=140€/camion ; TVA=20%
+      // Calcul HT, calcul TTC
+
+      let epaisseur, surface;
+      while(true) {
+        let e = prompt("Epaisseur en cm (15 à 35) :");
+        epaisseur = parseFloat(e);
+        let s = prompt("Surface en m² (>0) :");
+        surface = parseFloat(s);
+        if(!isNaN(epaisseur) && !isNaN(surface) &&
+           epaisseur>=15 && epaisseur<=35 && surface>0) {
+          break;
+        } else {
+          alert("Erreur : epaisseur (15-35) et surface (>0) attendues !");
+        }
+      }
+      // Calcul
+      let volume = (epaisseur/100)*surface; // en m3
+      let cimentTonne = volume*350/1000; // x350kg => tonne
+      // camions 9m3 => arrondir au plus grand
+      let camions = Math.ceil(volume/9);
+      let m3corrige = camions*9; // volume corrigé = multiple de 9
+      let prixHT = (m3corrige*91) + (camions*140);
+      let prixTTC = prixHT * 1.2;
+
+      // Affichage
+      let zone = document.getElementById("res-ex7");
+      zone.innerHTML = 
+        "<strong>Epaisseur</strong> = "+epaisseur+" cm<br>" +
+        "<strong>Surface</strong> = "+surface+" m²<br>" +
+        "<strong>Volume</strong> = "+volume.toFixed(2)+" m³<br>" +
+        "<strong>Ciment</strong> = "+cimentTonne.toFixed(2)+" tonne(s)<br>" +
+        "<strong>Camions</strong> = "+camions+" (9m³ chacun) => volume corrigé "+m3corrige+" m³<br>" +
+        "<strong>Prix HT</strong> = "+prixHT.toFixed(2)+" €<br>" +
+        "<strong>Prix TTC</strong> (20%) = "+prixTTC.toFixed(2)+" €";
+    }
+  </script>
+</body>
+</html>
