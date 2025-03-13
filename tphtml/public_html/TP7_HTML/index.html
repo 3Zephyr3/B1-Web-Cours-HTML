@@ -1,1 +1,282 @@
-t
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TP7 - Zoning d’une page Web</title>
+  <style>
+    /* Réinitialisation et défilement fluide */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    /* En-tête */
+    header {
+      width: 100%;
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      margin-bottom: 20px;
+    }
+    header h1 {
+      font-size: 2.5em;
+    }
+    /* Conteneur principal */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      background: white;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    /* Sommaire */
+    #tp7-toc {
+      margin-bottom: 20px;
+      padding: 10px;
+      background-color: #ecf0f1;
+      border-left: 4px solid #2c3e50;
+    }
+    #tp7-toc h2 {
+      font-size: 1.4em;
+      margin-bottom: 10px;
+      color: #2c3e50;
+    }
+    #tp7-toc ul {
+      list-style: none;
+    }
+    #tp7-toc ul li {
+      margin-bottom: 8px;
+    }
+    #tp7-toc ul li a {
+      text-decoration: none;
+      color: #3498db;
+      transition: color 0.3s;
+    }
+    #tp7-toc ul li a:hover {
+      color: #2980b9;
+    }
+    /* Sections */
+    .section {
+      margin: 30px 0;
+    }
+    .section h2 {
+      background-color: #2c3e50;
+      color: white;
+      padding: 10px;
+      margin-bottom: 10px;
+      font-size: 1.5em;
+    }
+    .section h3 {
+      margin: 15px 0;
+      font-size: 1.3em;
+      color: #34495e;
+    }
+    .section p, .section ul, .section pre, .section table {
+      padding: 10px;
+      line-height: 1.5;
+    }
+    pre {
+      background: #272822;
+      color: #f8f8f2;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 10px;
+    }
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+    th, td {
+      padding: 8px;
+      text-align: center;
+    }
+    caption {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    a {
+      color: #3498db;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    /* Footer */
+    footer {
+      width: 100%;
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- En-tête principal -->
+  <header>
+    <h1>TP WEB</h1>
+  </header>
+  
+  <div class="container">
+    <!-- Sommaire TP7 -->
+    <nav id="tp7-toc">
+      <h2>Sommaire TP7</h2>
+      <ul id="tp7-toc-list">Chargement du sommaire...</ul>
+    </nav>
+    
+    <!-- Exercice 1 -->
+    <section id="ex1" class="section">
+      <h2>Exercice 1 : Zoning à partir d'un lien</h2>
+      <p>
+        À partir du lien suivant : 
+        <a href="http://j-willette.developpez.com/tutoriels/html/les-bases-du-html/?page=page_1" target="_blank">
+          http://j-willette.developpez.com/tutoriels/html/les-bases-du-html/?page=page_1
+        </a>
+      </p>
+      <ul>
+        <li>Utiliser l'inspecteur d'élément pour représenter sous forme de boîtes le zoning de la page.</li>
+        <li>Préciser pour chaque zone la balise utilisée.</li>
+        <li>Pour la partie article, noter l'architecture du site.</li>
+      </ul>
+    </section>
+    
+    <!-- Exercice 2 -->
+    <section id="ex2" class="section">
+      <h2>Exercice 2 : Reproduire le zoning d'une page</h2>
+      <p>
+        Reproduire le zoning des pages suivantes. Dans cet exercice, l'objectif est de représenter la structure (le zoning) de la page, sans se soucier du contenu.  
+        <br>Chaque page doit garder ses proportions.
+      </p>
+      <p>
+        Réaliser un fichier CSS séparé et une page web pour chaque exercice. Le zoning choisi dépendra du site à produire.
+      </p>
+    </section>
+    
+    <!-- Exercice 3 -->
+    <section id="ex3" class="section">
+      <h2>Exercice 3 : Exemple de zoning d'une page web</h2>
+      <p>Reproduire le zoning d'une page web en se basant sur l'exemple suivant :</p>
+      <h3>Code HTML de l'exemple :</h3>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;TODO supply a title&lt;/title&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;style&gt;
+      .entete {
+        border: 1px solid;
+      }
+      .menu1 {
+        border: 1px solid blue;
+        height: 30px;
+        display: inline-block;
+        float: left;
+        margin: 1px;
+      }
+      .recherche {
+        border: 1px solid red;
+        height: 30px;
+        float: right;
+        margin: 1px;
+      }
+      .cadreLogoPub {
+        border: 1px solid blueviolet;
+        clear: left;
+        margin: 1px;
+      }
+      .logo {
+        display: inline-block;
+        border: 1px solid chocolate;
+        margin: 1px;
+      }
+      .emploi {
+        display: inline-block;
+        border: 1px solid chartreuse;
+      }
+      .main {
+        margin-top: 2px;
+        margin-bottom: 2px;
+        background-color: cadetblue;
+        height: 400px;
+      }
+      .pdp {
+        margin-top: 2px;
+        margin-bottom: 2px;
+        background-color: chartreuse;
+        height: 50px;
+      }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;header class="entete"&gt;
+      &lt;div&gt;
+        &lt;nav class="menu1"&gt;ZONE DE MENU 1&lt;/nav&gt;
+        &lt;form class="recherche"&gt;
+          &lt;input type="text"&gt;
+          &lt;input type="submit" value="rechercher" /&gt;
+        &lt;/form&gt;
+      &lt;/div&gt;
+      &lt;div class="cadreLogoPub"&gt;
+        &lt;div class="logo"&gt;&lt;img src="./images/arrow.png" alt="logo"/&gt;&lt;/div&gt;
+        &lt;div class="emploi"&gt;CADRE EMPLOI&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;nav&gt;ZONE DE MENU 2&lt;/nav&gt;
+    &lt;/header&gt;
+    &lt;section class="main"&gt;
+      &lt;article&gt;ARTICLE&lt;/article&gt;
+    &lt;/section&gt;
+    &lt;footer class="pdp"&gt;PIED DE PAGE&lt;/footer&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+      </code></pre>
+      <h3>Aperçu de l'exemple :</h3>
+      <iframe src="http://j-willette.developpez.com/tutoriels/html/les-bases-du-html/?page=page_1" style="width:100%; height:300px; border:1px solid #ccc;"></iframe>
+    </section>
+  </div>
+  
+  <footer>
+    <p>Page TP7 réalisée par Hugo Payet.</p>
+  </footer>
+  
+  <!-- Script pour générer automatiquement le sommaire des exercices -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var tocList = document.getElementById("tp7-toc-list");
+      var sections = document.querySelectorAll("section[id^='ex']");
+      tocList.innerHTML = "";
+      sections.forEach(function(section) {
+        var li = document.createElement("li");
+        var h2 = section.querySelector("h2");
+        if (h2) {
+          var a = document.createElement("a");
+          a.textContent = h2.textContent;
+          a.href = "#" + section.id;
+          li.appendChild(a);
+          tocList.appendChild(li);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
