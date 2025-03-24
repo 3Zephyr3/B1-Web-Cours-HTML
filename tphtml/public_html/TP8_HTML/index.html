@@ -435,6 +435,45 @@
         "<strong>Prix HT</strong> = "+prixHT.toFixed(2)+" €<br>" +
         "<strong>Prix TTC</strong> (20%) = "+prixTTC.toFixed(2)+" €";
     }
+
+    function ex8_calcul() {
+      // Récupération des valeurs depuis le formulaire
+      let epStr = document.getElementById("ep8").value;
+      let surfStr = document.getElementById("surf8").value;
+
+      let ep = parseFloat(epStr);
+      let sur = parseFloat(surfStr);
+
+      // Contrôle de saisie : épaisseur entre 15 et 35, surface > 0
+      if (isNaN(ep) || isNaN(sur) || ep < 15 || ep > 35 || sur <= 0) {
+        alert("Erreur : épaisseur (15..35) et surface (>0) requises !");
+        return;
+      }
+
+      // Calcul
+      let volume = (ep / 100) * sur; // volume en m3
+      let cimentTonne = (volume * 350) / 1000; // 350 kg/m3 => tonne
+      let camions = Math.ceil(volume / 9); // camions de 9m3
+      let m3corrige = camions * 9; // volume corrigé
+      let prixHT = m3corrige * 91 + camions * 140; // 91€/m3 + 140€ par livraison
+      let prixTTC = prixHT * 1.2; // TVA 20%
+
+      // Mise en forme du texte
+      let info = `
+        <strong>Épaisseur</strong> = ${ep} cm<br>
+        <strong>Surface</strong> = ${sur} m²<br>
+        <strong>Volume</strong> = ${volume.toFixed(2)} m³<br>
+        <strong>Ciment</strong> = ${cimentTonne.toFixed(2)} tonne(s)<br>
+        <strong>Camions</strong> = ${camions} (9m³) => volume corrigé ${m3corrige} m³<br>
+        <strong>Prix HT</strong> = ${prixHT.toFixed(2)} €<br>
+        <strong>Prix TTC</strong> (20%) = ${prixTTC.toFixed(2)} €
+      `;
+
+      // On rend le bloc visible et on y insère le résultat
+      document.getElementById("devis8").style.display = "block";
+      document.getElementById("dev8-content").innerHTML = info;
+    }
+
   </script>
 </body>
 </html>
