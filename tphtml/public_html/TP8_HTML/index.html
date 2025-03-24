@@ -229,32 +229,35 @@
 
     <!-- EXERCICE 8 -->
     <section id="ex8" class="section">
-      <h2>Exercice 8 : Devis cimenterie (formulaire HTML)</h2>
+      <h2>Exercice 8 : Devis cimenterie (formulaire + nouvelle fenêtre style "facture")</h2>
       <p>
-        Reprendre l'exercice 7, mais les données (épaisseur et surface) sont désormais saisies dans un formulaire HTML.
-        Après clic sur le bouton <em>Obtenir le devis</em>, on affiche le devis final sur la page 
-        (par exemple en jouant sur <code>display</code> ou <code>visibility</code>).
+        Reprendre l'exercice 7 : 
+        Les données (épaisseur, surface...) sont saisies dans ce formulaire. 
+        Après clic sur <em>Obtenir le devis</em>, on ouvre une nouvelle fenêtre 
+        affichant un devis stylé (comme l'exemple en PJ).
       </p>
 
-      <!-- Formulaire pour saisir épaisseur et surface -->
+      <!-- Formulaire pour saisir les informations nécessaires au devis -->
       <form id="form-ex8">
-        <label for="ep8">Épaisseur (cm, 15 à 35) :</label>
-        <input type="number" id="ep8" min="15" max="35" step="1" required>
+        <label for="ex8-nom">Nom :</label>
+        <input type="text" id="ex8-nom" placeholder="Isabelle DUBOIS" required>
         <br><br>
 
-        <label for="surf8">Surface (m²) :</label>
-        <input type="number" id="surf8" min="1" step="0.1" required>
+        <label for="ex8-addr">Adresse :</label>
+        <input type="text" id="ex8-addr" placeholder="123 Anywhere St" required>
+        <br><br>
+
+        <label for="ex8-ep">Épaisseur (cm, 15 à 35) :</label>
+        <input type="number" id="ex8-ep" min="15" max="35" step="1" required>
+        <br><br>
+
+        <label for="ex8-surf">Surface (m²) :</label>
+        <input type="number" id="ex8-surf" min="1" step="0.1" required>
         <br><br>
 
         <button type="button" onclick="ex8_calcul()">Obtenir le devis</button>
       </form>
-
-      <!-- Bloc d'affichage du devis (masqué par défaut) -->
-      <div id="devis8" style="display: none; border: 1px solid #ccc; padding: 10px; margin-top: 10px;">
-        <h3>Devis Cimenterie</h3>
-        <!-- On insérera dynamiquement le texte ici -->
-        <p id="dev8-content"></p>
-      </div>
+    </section>
 
   </div>
   
@@ -437,42 +440,171 @@
     }
 
     function ex8_calcul() {
-      // Récupération des valeurs depuis le formulaire
-      let epStr = document.getElementById("ep8").value;
-      let surfStr = document.getElementById("surf8").value;
+    // Récupération des valeurs depuis le formulaire
+    let nom      = document.getElementById("ex8-nom").value.trim();
+    let addr     = document.getElementById("ex8-addr").value.trim();
+    let epStr    = document.getElementById("ex8-ep").value;
+    let surfStr  = document.getElementById("ex8-surf").value;
 
-      let ep = parseFloat(epStr);
-      let sur = parseFloat(surfStr);
+    let ep   = parseFloat(epStr);
+    let sur  = parseFloat(surfStr);
 
-      // Contrôle de saisie : épaisseur entre 15 et 35, surface > 0
-      if (isNaN(ep) || isNaN(sur) || ep < 15 || ep > 35 || sur <= 0) {
-        alert("Erreur : épaisseur (15..35) et surface (>0) requises !");
-        return;
-      }
-
-      // Calcul
-      let volume = (ep / 100) * sur; // volume en m3
-      let cimentTonne = (volume * 350) / 1000; // 350 kg/m3 => tonne
-      let camions = Math.ceil(volume / 9); // camions de 9m3
-      let m3corrige = camions * 9; // volume corrigé
-      let prixHT = m3corrige * 91 + camions * 140; // 91€/m3 + 140€ par livraison
-      let prixTTC = prixHT * 1.2; // TVA 20%
-
-      // Mise en forme du texte
-      let info = `
-        <strong>Épaisseur</strong> = ${ep} cm<br>
-        <strong>Surface</strong> = ${sur} m²<br>
-        <strong>Volume</strong> = ${volume.toFixed(2)} m³<br>
-        <strong>Ciment</strong> = ${cimentTonne.toFixed(2)} tonne(s)<br>
-        <strong>Camions</strong> = ${camions} (9m³) => volume corrigé ${m3corrige} m³<br>
-        <strong>Prix HT</strong> = ${prixHT.toFixed(2)} €<br>
-        <strong>Prix TTC</strong> (20%) = ${prixTTC.toFixed(2)} €
-      `;
-
-      // On rend le bloc visible et on y insère le résultat
-      document.getElementById("devis8").style.display = "block";
-      document.getElementById("dev8-content").innerHTML = info;
+    // Vérification
+    if (!nom || !addr || isNaN(ep) || isNaN(sur) || ep<15 || ep>35 || sur<=0) {
+      alert("Veuillez remplir correctement le formulaire (épaisseur 15..35, surface>0).");
+      return;
     }
+
+    // Calcul (même logique que l'ex7)
+    let volume = (ep/100)*sur;           // m³
+    let cimentTonne = volume*350/1000;   // tonne
+    let camions = Math.ceil(volume/9);
+    let m3corrige = camions*9;
+    let prixHT = (m3corrige*91) + (camions*140);
+    let prixTTC = prixHT*1.2;
+
+    // Génération d'un "numéro" de devis ou date
+    let dateDev = new Date();
+    let dateStr = dateDev.toLocaleDateString("fr-FR"); // ex: 12/03/2025
+    let devisNum = Math.floor(Math.random()*90000) + 10000; // ex: 12345
+
+    // Création d'une nouvelle fenêtre
+    let w = window.open("", "_blank");
+    w.document.write(`
+  <!DOCTYPE html>
+  <html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <title>Devis Cimenterie - Ex8</title>
+    <style>
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 20px;
+        color: #2c3e50;
+      }
+      .devis-container {
+        max-width: 600px;
+        margin: 0 auto;
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 8px;
+      }
+      h1 {
+        text-align: center;
+        font-size: 1.8em;
+      }
+      .header-info {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+      .header-info div {
+        font-size: 0.9em;
+        line-height: 1.4;
+      }
+      .section-title {
+        font-weight: bold;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-size: 1.1em;
+        border-bottom: 1px solid #ccc;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+      }
+      table thead th {
+        background: #ecf0f1;
+        text-align: left;
+        padding: 8px;
+      }
+      table td, table th {
+        padding: 8px;
+        border: 1px solid #ccc;
+      }
+      .totaux {
+        margin-top: 10px;
+        text-align: right;
+      }
+      .conditions {
+        font-size: 0.85em;
+        margin-top: 20px;
+        color: #7f8c8d;
+      }
+      .text-right {
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="devis-container">
+      <h1>DEVIS N°${devisNum}</h1>
+      <div class="header-info">
+        <div>
+          <strong>Date du devis :</strong> ${dateStr}<br>
+          <strong>Validité du devis :</strong> 1 mois
+        </div>
+        <div style="text-align:right;">
+          <strong>Client :</strong><br>
+          ${nom}<br>
+          ${addr}
+        </div>
+      </div>
+
+      <div class="section-title">Détails du Devis</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Désignation</th>
+            <th>Prix Unitaire</th>
+            <th>Quantité</th>
+            <th>Montant</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Volume béton (corrigé)</td>
+            <td>91 € / m³</td>
+            <td>${m3corrige} m³</td>
+            <td class="text-right">${(m3corrige*91).toFixed(2)} €</td>
+          </tr>
+          <tr>
+            <td>Transport</td>
+            <td>140 € / livraison</td>
+            <td>${camions} camion(s)</td>
+            <td class="text-right">${(camions*140).toFixed(2)} €</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="totaux">
+        Sous-total HT : ${prixHT.toFixed(2)} €<br>
+        TVA (20%) : ${(prixHT*0.2).toFixed(2)} €<br>
+        <strong>Total TTC : ${prixTTC.toFixed(2)} €</strong>
+      </div>
+
+      <div class="section-title">Informations complémentaires</div>
+      <p>
+        Épaisseur : ${ep} cm<br>
+        Surface : ${sur} m²<br>
+        Volume calculé : ${volume.toFixed(2)} m³<br>
+        Ciment nécessaire : ${cimentTonne.toFixed(2)} tonne(s)
+      </p>
+
+      <div class="section-title">Termes et conditions</div>
+      <div class="conditions">
+        Les fichiers sources ou codes d'auteur sont réservés à un usage interne.
+        Toute reproduction ou distribution est interdite.
+        Les prix indiqués sont hors taxes. La TVA s'applique au taux en vigueur.
+      </div>
+    </div>
+  </body>
+  </html>
+    `);
+
+    // On peut éventuellement fermer le document pour forcer le rendu
+    w.document.close();
+  }
 
   </script>
 </body>
