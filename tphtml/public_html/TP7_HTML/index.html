@@ -13,11 +13,11 @@
 
     body {
       font-family: Arial, sans-serif;
-      background: #f8f8f8;
+      background: #f4f4f4; /* gris clair habituel */
       color: #333;
     }
     header {
-      background: #c49c6b;
+      background: #2c3e50; /* sombre */
       padding: 20px;
       text-align: center;
       color: #fff;
@@ -30,11 +30,13 @@
       max-width: 1200px;
       margin: 0 auto;
       padding: 20px;
+      background: #fff; /* conteneur blanc */
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
     /* Bouton retour */
     .btn-retour {
-      background: #b28c5b;
+      background: #3498db; /* bleu habituel */
       color: #fff;
       border: none;
       padding: 10px 15px;
@@ -42,37 +44,32 @@
       cursor: pointer;
       font-size: 0.9em;
       margin-bottom: 20px;
+      transition: background-color 0.3s;
     }
     .btn-retour:hover {
-      background: #9d7b4e;
+      background-color: #2980b9;
     }
 
     h2 {
       margin-top: 30px;
       margin-bottom: 15px;
-      color: #6b4b2c;
+      color: #2c3e50;
     }
     section p {
       margin-bottom: 15px;
       line-height: 1.5;
     }
 
-    /* EX2 - Zoning containers */
+    /* Zoning containers */
     .zoning-container {
       margin: 30px 0;
       padding: 15px;
-      background: #fff5e6;
-      border: 1px solid #e1c8a7;
+      background: #ecf0f1; /* fond gris clair */
+      border: 1px solid #bdc3c7;
     }
     .zoning-container h3 {
       margin-bottom: 15px;
-      color: #c49c6b;
-    }
-    .z1-top, .z2-top, .z3-top, .z4-top, .z5-top, .z6-top, .z7-top {
-      text-align: center;
-      color: #fff;
-      padding: 20px;
-      font-weight: bold;
+      color: #2c3e50;
     }
 
     /* ---------- Zoning 1 ---------- */
@@ -84,22 +81,28 @@
       flex-direction: column;
     }
     .z1-top {
-      background-color: #db5757;
+      background-color: #db5757; /* rouge */
       height: 80px;
+      color: #fff;
+      text-align: center;
+      font-weight: bold;
+      line-height: 80px;
     }
     .z1-body {
       display: flex;
       flex: 1;
     }
     .z1-left {
-      background-color: #57a7db;
+      background-color: #57a7db; /* bleu clair */
       width: 25%;
       padding: 10px;
+      color: #fff;
     }
     .z1-middle {
-      background-color: #57db7a;
+      background-color: #57db7a; /* vert clair */
       flex: 1;
       padding: 10px;
+      color: #fff;
     }
 
     /* ---------- Zoning 2 ---------- */
@@ -111,27 +114,34 @@
       flex-direction: column;
     }
     .z2-top {
-      background-color: #db5757;
+      background-color: #db5757; /* rouge */
       height: 80px;
+      color: #fff;
+      text-align: center;
+      font-weight: bold;
+      line-height: 80px;
     }
     .z2-body {
       flex: 1;
       display: flex;
     }
     .z2-left {
-      background-color: #57a7db;
+      background-color: #57a7db; /* bleu clair */
       width: 20%;
       padding: 10px;
+      color: #fff;
     }
     .z2-middle {
-      background-color: #57db7a;
+      background-color: #57db7a; /* vert clair */
       width: 60%;
       padding: 10px;
+      color: #fff;
     }
     .z2-right {
-      background-color: #dba757;
+      background-color: #dba757; /* marron clair */
       width: 20%;
       padding: 10px;
+      color: #fff;
     }
 
     /* ---------- Zoning 3 ---------- */
@@ -149,13 +159,13 @@
       background-color: #40b4a0;
       width: 50%;
       padding: 10px;
-      height: 100%;
+      color: #fff;
     }
     .z3-right {
       background-color: #a040b4;
       width: 50%;
       padding: 10px;
-      height: 100%;
+      color: #fff;
     }
     .z3-bottom {
       background-color: #f0c000;
@@ -178,18 +188,33 @@
     .z4-top {
       grid-column: 1 / 4;
       background: #1abc9c;
+      color: #fff;
+      text-align: center;
+      font-weight: bold;
+      line-height: 45px;
     }
     .z4-menu {
       grid-column: 1 / 4;
       background: #9b59b6;
+      color: #fff;
+      text-align: center;
+      font-weight: bold;
+      line-height: 30px;
     }
     .z4-main {
       grid-column: 2 / 3;
       background: #f4d03f;
+      text-align: center;
+      font-weight: bold;
+      color: #333;
     }
     .z4-bottom {
       grid-column: 1 / 4;
       background: #1abc9c;
+      color: #fff;
+      text-align: center;
+      font-weight: bold;
+      line-height: 45px;
     }
 
     /* ---------- Zoning 5 ---------- */
@@ -204,10 +229,18 @@
     .z5-top {
       grid-column: 1 / 5;
       background: #1abc9c;
+      color: #fff;
+      text-align: center;
+      font-weight: bold;
+      line-height: 45px;
     }
     .z5-menu {
       grid-column: 1 / 5;
       background: #9b59b6;
+      color: #fff;
+      text-align: center;
+      font-weight: bold;
+      line-height: 30px;
     }
     .z5-main {
       grid-column: 2 / 4;
@@ -227,6 +260,10 @@
     .z5-bottom {
       grid-column: 1 / 5;
       background: #1abc9c;
+      color: #fff;
+      text-align: center;
+      font-weight: bold;
+      line-height: 45px;
     }
 
     /* ---------- Zoning 6 ---------- */
@@ -243,12 +280,16 @@
       background: #8a007f;
       text-align: center;
       color: #fff;
+      font-weight: bold;
+      line-height: 30px;
     }
     .z6-menu {
       grid-column: 1 / 5;
       background: #0000fe;
       text-align: center;
       color: #fff;
+      font-weight: bold;
+      line-height: 20px;
     }
     .z6-main {
       grid-column: 2 / 4;
@@ -262,6 +303,7 @@
       align-items: center;
       justify-content: center;
       color: #fff;
+      font-weight: bold;
     }
     .z6-bottom {
       grid-column: 1 / 5;
@@ -269,6 +311,7 @@
       text-align: center;
       color: #333;
       font-weight: bold;
+      line-height: 30px;
     }
 
     /* ---------- Zoning 7 ---------- */
@@ -297,6 +340,7 @@
       text-align: center;
       color: #fff;
       line-height: 210px; /* 70% of 300px = 210px */
+      font-weight: bold;
     }
     .z7-right {
       position: absolute;
@@ -306,6 +350,7 @@
       text-align: center;
       color: #fff;
       line-height: 210px;
+      font-weight: bold;
     }
     .z7-bottom {
       position: absolute;
@@ -334,11 +379,17 @@
       color: #333;
       font-weight: bold;
     }
+    footer {
+      background: #2c3e50;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>Bienvenue dans mon TP7&nbsp;!</h1>
+    <h1>Bienvenue dans mon TP7 !</h1>
     <button class="btn-retour" onclick="window.location.href='https://3zephyr3.github.io/B1-Web-Cours-HTML/tphtml/public_html/'">Retour à l'accueil</button>
   </header>
 
@@ -493,8 +544,8 @@
     </div>
   </div>
 
-  <footer style="background:#c49c6b; color:#fff; text-align:center; padding:10px;">
-    <p>TP7 - Réalisé par [Votre Nom]</p>
+  <footer>
+    <p>TP7 - Réalisé par Hugo Payet</p>
   </footer>
 </body>
 </html>
